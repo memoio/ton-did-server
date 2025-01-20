@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Phetsarath:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg {
+  background: linear-gradient(269.76deg, #000402 0.21%, #00110A 41.21%);
+}
+
+.paytone {
+  font-family: 'Paytone One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.phetsarath {
+  font-family: "Phetsarath", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.phetsarath2 {
+  font-family: "Phetsarath", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.connect {
+  position: absolute;
+  width: 345px;
+  height: 460px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(180.71deg, rgba(0, 0, 0, 0.99) -5.35%, rgba(5, 242, 146, 0.18) 213.97%);
+  border-radius: 15px;
+}
+
+.element {
+  top: calc(50% - 216px);
+  background-color: #021B12;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.card {
+  background: linear-gradient(117.75deg, #1E4874 7.14%, #0EB476 100%);
+  border-bottom: 5px solid #05F292;
+  border-radius: 20px;
+}
+
+.rotate {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
