@@ -1,6 +1,6 @@
 "use client";
 // import Image from "next/image";
-import React, { FC, MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from "react";
 
 interface GeneralModalProps {
     handleClose: MouseEventHandler<HTMLDivElement>;
