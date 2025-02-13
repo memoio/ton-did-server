@@ -1,7 +1,10 @@
 import ReactDOM from 'react-dom/client';
 // import Start from './App';
 // import ConnectWallet from "./components/connect/connect"
-import './index.css';
+import './styles/globals.css';
+import './styles/tailwind-gen.css';
+import './styles/index.css';
+
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { AuthContextProvider } from './context/AuthConext';
 import AppRouter from './router';
