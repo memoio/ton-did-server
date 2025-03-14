@@ -6,11 +6,13 @@ import { useTonAddress } from '@tonconnect/ui-react';
 import Footer from '../reusable/footer';
 import { API_URL } from '../config/config';
 import { useAuth } from '../../context/AuthContext';
+import { useDIDInfo } from '../../context/DIDContext';
 import axios from 'axios';
 
 const CreateDid = () => {
     const [open, setOpen] = useState(false);
     const { userInfo } = useAuth();
+    const { updateDID } = useDIDInfo();
     const rawAddress = useTonAddress(false);
     const medias = ["/Images/tel.svg", "/Images/x.svg", "/Images/mail.svg", "/Images/discord.svg", "/Images/email.svg"]
     const handleCreate = async () => {
@@ -25,6 +27,7 @@ const CreateDid = () => {
                 });
 
                 if (response1.status === 200) {
+                    updateDID();
                     const actionId = 1;
                     const response2 = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
                         "action": actionId

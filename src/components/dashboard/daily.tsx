@@ -54,7 +54,7 @@ const Daily = () => {
         },
     ]
     const { dailyAction, questAction, setDaily, setQuest } = useAction();
-    const { userInfo } = useAuth();
+    const { userInfo, setPoints } = useAuth();
     const address = useTonAddress();
     const { didInfo } = useDIDInfo();
 
@@ -75,7 +75,8 @@ const Daily = () => {
                         }
                     });
 
-                    if (respond.status === 200) {
+                    if (respond.status === 200 && respond.data.result === 1) {
+                        setPoints(respond.data.data.totalPoints);
                         setDaily(index);
                     }
 
@@ -106,7 +107,8 @@ const Daily = () => {
                         }
                     });
 
-                    if (respond.status === 200) {
+                    if (respond.status === 200 && respond.data.result === 1) {
+                        setPoints(respond.data.data.totalPoints);
                         setQuest(index);
                     }
 

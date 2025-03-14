@@ -5,11 +5,6 @@ import { useTonAddress } from '@tonconnect/ui-react';
 import axios from 'axios';
 import { API_URL } from '../components/config/config';
 
-// interface TaskData {
-//     projectId: number;
-//     taskId: number;
-// }
-
 interface ActionContextType {
     dailyAction: Set<number>;
     questAction: Set<number>;
@@ -174,10 +169,6 @@ export const ActionProvider = ({ children }: ActionContextProviderProps) => {
             //     setInviteCode('******');
         }
     }, [address]);
-    console.log("daily: ", dailyAction);
-    console.log("quest: ", questAction);
-    // console.log("cycle: ", cycleAction);
-    // console.log("invite: ", inviteCode);
 
     return (
         <ActionContext.Provider value={{

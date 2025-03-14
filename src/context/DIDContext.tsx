@@ -10,10 +10,7 @@ interface DIDContextType {
         did: string;
         number: string;
     };
-    setDID: (didInfo: {
-        did: string;
-        number: string;
-    }) => void;
+    updateDID: () => Promise<void>;
 }
 
 export const DIDContext = createContext<DIDContextType | null>(null);
@@ -36,37 +33,38 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
         })
     }
 
-    useEffect(() => {
-        if (address != "") {
-            // 调用绑定钱包接口
-            const HandleDID = async () => {
-                try {
-                    const splitted = address.split(":")
-                    const splitedAddress = splitted[1];
-                    console.log(splitedAddress);
+    const HandleDID = async () => {
+        try {
+            const splitted = address.split(":")
+            const splitedAddress = splitted[1];
+            console.log(splitedAddress);
 
-                    const response = await axios.get(
-                        API_URL.DID_INFO,
-                        {
-                            params: {
-                                "address": splitedAddress,
-                            },
-                        }
-                    );
-
-                    if (response.status === 200) {
-                        console.log("didinfo:", response.data);
-                        setDID({
-                            did: response.data.did,
-                            number: response.data.number.toString().padStart(6, '0'),
-                        })
-                    }
-                } catch (error) {
-                    alert(`Error binding wallet: ${error}`);
-                    return
+            const response = await axios.get(
+                API_URL.DID_INFO,
+                {
+                    params: {
+                        "address": splitedAddress,
+                    },
                 }
-            };
+            );
 
+            if (response.status === 200) {
+                console.log("didinfo:", response.data);
+                setDID({
+                    did: response.data.did,
+                    number: response.data.number.toString().padStart(6, '0'),
+                })
+            }
+        } catch (error) {
+            alert(`Error binding wallet: ${error}`);
+            return
+        }
+    };
+
+    const updateDID = HandleDID;
+
+    useEffect(() => {
+        if (address !== "" && didInfo.did === "") {
             HandleDID();
         }
     }, [address]);
@@ -74,7 +72,7 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
     return (
         <DIDContext.Provider value={{
             didInfo,
-            setDID
+            updateDID
         }}>
             {children}
         </DIDContext.Provider>
