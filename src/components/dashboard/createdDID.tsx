@@ -38,7 +38,7 @@ const CreatedDid = () => {
                     <div className='px-3 w-full mt-11 flex flex-col gap-4'>
                         <div className='flex flex-col gap-6 w-full'>
                             <p className='text-[18px] font-bold paytone text-white'>NO.{didInfo.number}</p>
-                            <p className='text-[#C3C3C3] w-[70%]'>Did:memo:{didInfo.did}</p>
+                            <p className='text-[#C3C3C3] w-[70%]'>{didInfo.did}</p>
                         </div>
                         {/* <Link href={"/dashboard/create"} className='bg-[#05F292] rounded-[38px] flex items-center justify-center font-bold text-black h-[42px]'>Ok</Link> */}
                     </div>

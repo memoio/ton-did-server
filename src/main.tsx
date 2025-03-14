@@ -6,7 +6,7 @@ import './styles/tailwind-gen.css';
 import './styles/index.css';
 
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import { AuthContextProvider } from './context/AuthConext';
+import { AuthContextProvider } from './context/AuthContext';
 import AppRouter from './router';
 import { ActionProvider } from './context/ActionContext';
 import { DIDProvider } from "./context/DIDContext";

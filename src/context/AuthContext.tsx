@@ -7,12 +7,16 @@ import { API_URL } from "../components/config/config";
 interface UserInfo {
     uid: string;
     token: string;
+    inviteCode: string;
+    inviteCount: number;
+    points: number;
 }
 
 interface AuthContextType {
     isExist: boolean;
     setBindWallet: () => void;
     userInfo: UserInfo | null;
+
 }
 // Create the context
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -49,10 +53,23 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
                     );
 
                     if (response.data.result === 1) {
-                        setUserInfo({
-                            uid: response.data.data.uid,
-                            token: response.data.data.token,
+                        const userresponse = await axios.get(API_URL.AIRDROP_USER_INFO, {
+                            headers: {
+                                "uid": response.data.data.uid,
+                                "token": response.data.data.token,
+                            },
                         });
+                        console.log(userresponse.data.data);
+
+                        if (userresponse.data.result === 1) {
+                            setUserInfo({
+                                uid: response.data.data.uid,
+                                token: response.data.data.token,
+                                inviteCode: userresponse.data.data.inviteCode,
+                                inviteCount: userresponse.data.data.inviteCount,
+                                points: userresponse.data.data.points
+                            })
+                        }
                     } else {
                         alert(`Failed to bind wallet: ${JSON.stringify(response.data)}`);
                     }

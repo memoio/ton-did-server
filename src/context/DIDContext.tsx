@@ -41,8 +41,6 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
             // 调用绑定钱包接口
             const HandleDID = async () => {
                 try {
-                    console.log("clear");
-
                     const splitted = address.split(":")
                     const splitedAddress = splitted[1];
                     console.log(splitedAddress);
@@ -70,9 +68,6 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
             };
 
             HandleDID();
-            // } else {
-            //     clear();
-            //     setInviteCode('******');
         }
     }, [address]);
 

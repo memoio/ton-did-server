@@ -6,7 +6,7 @@ import { API_URL } from '../config/config';
 import { useAction } from '../../context/ActionContext';
 import { useDIDInfo } from '../../context/DIDContext';
 import { useTonAddress } from '@tonconnect/ui-react';
-import { useAuth } from '../../context/AuthConext';
+import { useAuth } from '../../context/AuthContext';
 
 const Daily = () => {
     const dailyReward = [

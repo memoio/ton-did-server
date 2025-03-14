@@ -5,7 +5,7 @@ import GeneralModal from './modal'
 import { useTonAddress } from '@tonconnect/ui-react';
 import Footer from '../reusable/footer';
 import { API_URL } from '../config/config';
-import { useAuth } from '../../context/AuthConext';
+import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
 const CreateDid = () => {

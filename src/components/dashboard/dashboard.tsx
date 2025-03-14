@@ -1,14 +1,19 @@
 // import Image from 'next/image'
 import Footer from '../reusable/footer';
+import { useDIDInfo } from "../../context/DIDContext";
+import { useAuth } from "../../context/AuthContext";
 
 const Dashboard = () => {
+    const { didInfo } = useDIDInfo();
+    const { userInfo } = useAuth();
+
     return (
         <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-4'>
             <img src={"/Images/reward2.svg"} className='absolute top-0 left-0' width={40} height={60} alt='' />
             <div className='flex flex-col items-center'>
                 <div className='flex flex-col items-center'>
                     <p className='flex paytone text-[28px] font-normal text-white'>Welcome back,</p>
-                    <p className='flex paytone text-[28px] font-normal text-[#05F292]'> DID1234!</p>
+                    <p className='flex paytone text-[28px] font-normal text-[#05F292]'> {didInfo.did.slice(0, 13)}...{didInfo.did.slice(69)}</p>
                 </div>
             </div>
             <div className='w-full flex flex-col gap-5 z-[400]'>
@@ -18,18 +23,15 @@ const Dashboard = () => {
                         <p className='font-bold text-white'>Total Points</p>
                         <div className='flex flex-row items-center gap-1'>
                             <img src={"/Images/coin.svg"} width={22} height={22} alt='' />
-                            <p className='text-white Phetsarath2 text-[16px] font-bold'>350 Points</p>
+                            <p className='text-white Phetsarath2 text-[16px] font-bold'>{userInfo?.points} Points</p>
                         </div>
                     </div>
                     <div className='element w-full h-[56px] flex flex-row items-center justify-between px-[5%]'>
-                        <div className='flex flex-col leading-none gap-1'>
-                            <p className='font-bold text-white'>Total Points</p>
-                            <p className='font-bold text-[#05F292]'>3</p>
-                        </div>
-                        <img src={"/Images/Line.svg"} width={1} height={1} alt='' />
-                        <div className='flex flex-col leading-none justify-end items-end gap-1'>
-                            <p className='font-bold text-white'>Daily reward</p>
-                            <p className='font-bold text-[#05F292]'>Pending</p>
+                        <p className='font-bold text-white'>Total Referrals</p>
+                        <div className='flex flex-col leading-none gap-2'>
+                            <div className='flex flex-row items-center gap-1'>
+                                <p className='Phetsarath2 text-[16px] font-bold text-[#05F292]'>{userInfo?.inviteCount}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
