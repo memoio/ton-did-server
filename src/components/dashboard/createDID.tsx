@@ -14,6 +14,7 @@ const CreateDid = () => {
     const { userInfo } = useAuth();
     const { updateDID } = useDIDInfo();
     const rawAddress = useTonAddress(false);
+    const address = useTonAddress();
     const medias = ["/Images/tel.svg", "/Images/x.svg", "/Images/mail.svg", "/Images/discord.svg", "/Images/email.svg"]
     const handleCreate = async () => {
         console.log(rawAddress);
@@ -90,11 +91,11 @@ const CreateDid = () => {
                         <div className='flex flex-col gap-2'>
                             <div className='flex flex-row items-center justify-between'>
                                 <p>Network</p>
-                                <p>Polygon</p>
+                                <p>Memo</p>
                             </div>
                             <div className='flex flex-row items-center justify-between'>
                                 <p>Mint To</p>
-                                <p>0xb189...nh79</p>
+                                <p>{address.slice(0, 6)}...{address.slice(42)}</p>
                             </div>
                             <div className='flex flex-row items-center justify-between'>
                                 <p>Play With</p>

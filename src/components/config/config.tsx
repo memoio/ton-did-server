@@ -6,7 +6,7 @@ export const TEST_AIRDROP_BACKEND_URL = "https://apapitest.memoscan.org/api"
 
 export const PRODUCT_AIRDROP_BACKEND_URL = "https://apapi.memoscan.org/api"
 
-
+export const TON_DID_WEB = "https://datadid-ton.memolabs.net"
 export const AIRDROP_BACKEND_URL = PRODUCT_AIRDROP_BACKEND_URL
 export const DID_SERVER_URL = DEV_DID_SERVER_URL
 

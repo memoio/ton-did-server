@@ -77,15 +77,6 @@ export const ActionProvider = ({ children }: ActionContextProviderProps) => {
                     );
 
                     if (response.data.result === 1) {
-                        // get user info
-                        // const userresponse = await axios.get(API_URL.AIRDROP_USER_INFO, {
-                        //     headers: {
-                        //         "uid": response.data.data.uid,
-                        //         "token": response.data.data.token,
-                        //     },
-                        // });
-                        // setInviteCode(userresponse.data.data.inviteCode);
-
                         // get one time action
                         const oneTimeRespond = await axios.get(API_URL.AIRDROP_RECORD_LIST,
                             {

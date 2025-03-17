@@ -1,5 +1,6 @@
 // import Image from 'next/image'
 import Footer from '../reusable/footer';
+import { TON_DID_WEB } from '../config/config';
 import { useAuth } from "../../context/AuthContext";
 
 const Referal = () => {
@@ -16,7 +17,39 @@ const Referal = () => {
             title: "Invite a Friend with twitter"
         },
 
-    ]
+    ];
+
+    const currentUrl = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
+    const tweetText = `📈I found a platform that can own, manage and monetize your data @MemoLabsOrg!
+
+🚀Currently all users can participate, and you can easily get points rewards by completing tasks, and you can also redeem more value!
+
+➡️Experience now ${currentUrl}
+`
+    const tgText = `🎉 Welcome to the MEMO data ecosystem, a platform where you can own, manage and monetize your data! 💰
+
+🌟 You can easily earn points by completing tasks within the platform, and you can also unlock exclusive tasks with multiple partners to get points!
+·Create DID 📝
+·Link Social Media Accounts🔗
+·Daily Check-in📅
+·Joint Activities🤝
+·Invite friends👫
+
+🚀 Click ${currentUrl} to start your data value-added journey!
+`;
+    const urls = [
+        { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+        { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) },
+    ];
+
+    const handleInvite = (index: number) => {
+        window.open(urls[index].url, '_blank');
+    }
+
+    const handleInviteTG = () => {
+        window.open(urls[0].url, '_blank');
+    }
+
     return (
         <div className='w-full relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-8 overflow-y-scroll'>
             <img src={"/Images/friends.svg"} width={98} height={98} alt='' />
@@ -55,7 +88,7 @@ const Referal = () => {
                                                 <p className='font-bold text-[13px] text-[#05F292] phetsarath2'>{item.point}</p>
                                             </div>
                                         </div>
-                                        <button className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
+                                        <button onClick={() => handleInvite(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
                                             <p className='phetsarath2 text-[15px] text-black'>Invite</p>
                                         </button>
                                     </div>
@@ -68,11 +101,11 @@ const Referal = () => {
             <div className='bg-[#022115] flex flex-col items-center justify-center gap-2 w-[292px] h-[160px] rounded-[16px]'>
                 <p className='text-[14px] font-bold phetsarath2 text-[#05F292]'>Your referral Link</p>
                 <div className='bg-[#FFFFFF21] w-[208px] h-[25px] items-center justify-center flex'>
-                    <p className='text-[#04D5FF] text-[12px]'>www.miniapp.com/ref/{userInfo?.inviteCode}  </p>
+                    <p className='text-[#04D5FF] text-[12px]'>{TON_DID_WEB}?referralCode={userInfo?.inviteCode} </p>
                 </div>
                 {/* <p className='text-[14px] phetsarath text-[#05F292]'>You haven’t invited anyone yet</p> */}
                 <div className='flex flex-row items-center gap-3'>
-                    <button className='w-[100px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-[#05F292] hover:bg-gray-100 active:bg-gray-200 transition-colors'>
+                    <button onClick={handleInviteTG} className='w-[100px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-[#05F292] hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
                             <img src={"/Images/plus.svg"} width={18} height={18} alt='' />
                             <p className='text-[10px] phetsarath'>Invite a Friend</p>

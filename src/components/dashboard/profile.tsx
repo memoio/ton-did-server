@@ -2,6 +2,7 @@
 // import Image from 'next/image'
 import { useState } from 'react'
 import Footer from '../reusable/footer';
+import { TON_DID_WEB } from '../config/config';
 import { useDIDInfo } from "../../context/DIDContext";
 import { useAuth } from "../../context/AuthContext";
 import { useTonAddress } from '@tonconnect/ui-react';
@@ -13,7 +14,6 @@ const Profile = () => {
     const { didInfo } = useDIDInfo();
     const { userInfo } = useAuth();
     const address = useTonAddress();
-    const link = "www.miniPP...";
 
     const handleCopy = () => {
         navigator.clipboard.writeText(address)
@@ -24,7 +24,7 @@ const Profile = () => {
         setCopied2(true)
     }
     const handleCopy3 = () => {
-        navigator.clipboard.writeText(`www.miniapp.com/ref/${userInfo?.inviteCode}`)
+        navigator.clipboard.writeText(`${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`)
         setCopied3(true)
     }
     return (
@@ -108,7 +108,7 @@ const Profile = () => {
                         <div className='flex flex-row items-center justify-between w-full'>
                             <p className='font-bold text-[13px] text-white phetsarath2'>Your Referral Link</p>
                             <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                <p className='phetsarath2 text-[15px] text-black'>{link}</p>
+                                <p className='phetsarath2 text-[15px] text-black'>{TON_DID_WEB.slice(8, 20)}...</p>
                                 <div >
                                     {
                                         copied3 === true ? <img src={"/Images/check.svg"} width={11} height={12.22} alt="" /> :

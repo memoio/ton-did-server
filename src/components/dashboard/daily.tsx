@@ -2,18 +2,21 @@
 import { TbChevronRight, TbCheck } from 'react-icons/tb';
 import Footer from '../reusable/footer';
 import axios from "axios";
-import { API_URL } from '../config/config';
+import { API_URL, TON_DID_WEB } from '../config/config';
 import { useAction } from '../../context/ActionContext';
 import { useDIDInfo } from '../../context/DIDContext';
 import { useTonAddress } from '@tonconnect/ui-react';
 import { useAuth } from '../../context/AuthContext';
+
+const tweet1Text = "Come and participate in MEMO's points airdrop event!";
+const tweetUrl = 'https://x.com/MemoLabsOrg/status/1862453981072826816';
 
 const Daily = () => {
     const dailyReward = [
         {
             title: "Check in",
             points: "+20 points",
-            img: "/Images/coin.svg"
+            img: "/Images/coin.svg",
         },
         {
             title: "Share to chat group",
@@ -34,23 +37,27 @@ const Daily = () => {
     const communityquest = [
         {
             title: "Follow our Twitter",
-            points: "+20 points",
-            img: "/Images/x.jpeg"
+            points: "+50 points",
+            img: "/Images/x.jpeg",
+            url: "https://x.com/MemoLabsOrg",
         },
         {
             title: "Join our TG channel",
-            points: "+20 points",
-            img: "/Images/tg.png"
+            points: "+50 points",
+            img: "/Images/tg.png",
+            url: "https://t.me/memolabsio"
         },
         {
             title: "Join our discord",
-            points: "+20 points",
-            img: "/Images/discord.png"
+            points: "+50 points",
+            img: "/Images/discord.png",
+            url: 'https://discord.com/invite/YG4Ydv2E7X',
         },
         {
             title: "Share to Twitter",
-            points: "+20 points",
-            img: "/Images/x.jpeg"
+            points: "+50 points",
+            img: "/Images/x.jpeg",
+            url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet1Text) + '&url=' + encodeURIComponent(tweetUrl)
         },
     ]
     const { dailyAction, questAction, setDaily, setQuest } = useAction();
@@ -58,10 +65,36 @@ const Daily = () => {
     const address = useTonAddress();
     const { didInfo } = useDIDInfo();
 
+    const currentUrl = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
+    const tweetText = `📈I found a platform that can own, manage and monetize your data @MemoLabsOrg!
+
+🚀Currently all users can participate, and you can easily get points rewards by completing tasks, and you can also redeem more value!
+
+➡️Experience now ${currentUrl}
+`
+    const tgText = `🎉 Welcome to the MEMO data ecosystem, a platform where you can own, manage and monetize your data! 💰
+
+🌟 You can easily earn points by completing tasks within the platform, and you can also unlock exclusive tasks with multiple partners to get points!
+·Create DID 📝
+·Link Social Media Accounts🔗
+·Daily Check-in📅
+·Joint Activities🤝
+·Invite friends👫
+
+🚀 Click ${currentUrl} to start your data value-added journey!
+`
+
     const handleDailyClick = async (index: number) => {
         try {
             if (address != "") {
-                if (didInfo.did != "") {
+                if (didInfo.number != "000000") {
+                    const urls = [
+                        { url: "https://x.com/MemoLabsOrg" },
+                        { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+                        { url: 'https://discord.com/invite/YG4Ydv2E7X' },
+                        { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) },
+                    ];
+                    window.open(urls[index].url, '_blank');
                     const actionId = 70 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
@@ -93,7 +126,8 @@ const Daily = () => {
     const handleQuestClick = async (index: number) => {
         try {
             if (address != "") {
-                if (didInfo.did != "") {
+                if (didInfo.number != "000000") {
+                    window.open(communityquest[index].url, '_blank');
                     const actionId = 50 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
