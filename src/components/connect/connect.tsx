@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TonConnectButton, useTonAddress } from '@tonconnect/ui-react';
+import "../../App.css";
 
 const ConnectWallet = () => {
     const address = useTonAddress();
@@ -23,16 +24,12 @@ const ConnectWallet = () => {
                     <img src={"/Images/wallet.svg"} className="" width={86} height={86} alt="" />
                 </div>
                 <div className='w-full h-[225px] justify-between flex flex-col items-center px-5'>
-                    <p className='text-[32px] paytone text-white text-center'>Connect your <br /> <span className='text-[#05F292]'>Wallet</span></p>
+                    <div className='w-full h-[105px] justify-between flex flex-col items-center px-5'>
+                        <p className='text-[48px] praise-regular text-white text-center h-[38px]'>Connect</p>
+                        <p className='text-[40px] nunito-regular text-[#05F292] text-center'> Your Wallet</p>
+                    </div>
                     <p className='text-white phetsarath text-center text-[16px] '>Connect your Ton wallet to create your unique MEMO Identity</p>
-                    {/* <button type='button' id='ton-connect' className="w-[180px] h-[42px] rounded-[37px] bg-[#05F292] py-[9px] px-[20px] flex items-center gap-2 z-[500]">
-                        <div className="w-[25px] h-[25px] rounded-full bg-white items-center justify-center flex">
-                            <img src={"/Images/arrow.svg"} width={11.67} height={13.33} alt="" />
-                        </div>
-                        <div> */}
                     <TonConnectButton />
-                    {/* </div> */}
-                    {/* </button> */}
                 </div>
             </div>
 
