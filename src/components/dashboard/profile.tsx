@@ -18,7 +18,7 @@ const Profile = () => {
     const handleCopy = () => {
         const textToCopy = address;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied: ${textToCopy}`);
+            setShowPopup(`Copied`);
             setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
         }).catch(() => {
             alert('Failed to copy.');
@@ -27,7 +27,7 @@ const Profile = () => {
     const handleCopy2 = () => {
         const textToCopy = didInfo.did;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied: ${textToCopy}`);
+            setShowPopup(`Copied`);
             setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
         }).catch(() => {
             alert('Failed to copy.');
@@ -36,7 +36,7 @@ const Profile = () => {
     const handleCopy3 = () => {
         const textToCopy = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied: ${textToCopy}`);
+            setShowPopup(`Copied`);
             setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
         }).catch(() => {
             alert('Failed to copy.');

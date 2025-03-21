@@ -57,7 +57,7 @@ const Referal = () => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(currentUrl).then(() => {
-            setShowPopup(`Copied: ${currentUrl}`);
+            setShowPopup(`Copied`);
             setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
         }).catch(() => {
             alert('Failed to copy.');
