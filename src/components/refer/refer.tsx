@@ -4,13 +4,13 @@ import { useAuth } from "../../context/AuthContext";
 import { useRefer } from "../../context/ReferContext";
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from "../config/config";
+import { showModal } from "../popup/popup";
 
 export default function Invite() {
     const navigate = useNavigate();
     const { userInfo, setBindWallet } = useAuth();
     const { referCode } = useRefer();
     const [values, setValues] = useState(Array(6).fill("")); // Separate state for each input
-    const [success, setSuccess] = useState(false); // State for success popup
 
     useEffect(() => {
         if (referCode.length === 6) {
@@ -18,6 +18,18 @@ export default function Invite() {
             setValues(referCode.split(''));
         }
     }, [referCode])
+
+    useEffect(() => {
+        // 监听myVariable的变化
+        console.log(userInfo)
+        if (userInfo !== null) {
+            console.log(userInfo);
+            if (userInfo.bindedCode === true) {
+                navigate('/dashboard');
+            }
+            // 当myVariable为true时，触发页面跳转
+        }
+    }, [userInfo]);
 
 
     const handleChange = (index: number, value: string) => {
@@ -52,7 +64,7 @@ export default function Invite() {
             }
             const inviteCode = values.join("");
             if (inviteCode.length !== 6) {
-                alert("Please enter a valid invite code.");
+                showModal("Failed", `Please enter a valid invite code.`, null, "failed")
                 return;
             }
             const respond = await axios.post(API_URL.AIRDROP_INVITE_BIND, {
@@ -68,14 +80,16 @@ export default function Invite() {
             });
             if (respond.status == 200) {
                 if (respond.data.result == 1) {
-                    setSuccess(true);
+                    showModal("Success", "You have entered the correct code.", () => { navigate('/dashboard'); });
                     console.log(respond.data.data);
                 } else {
-                    alert(respond.data.message);
+                    showModal("Failed", `Failed to bind invited code: ${respond.data.message}`, null, "failed");
                 }
+            } else {
+                showModal("Failed", `Failed to bind invited code: ${JSON.stringify(respond.data)}`, null, "failed");
             }
         } catch (error) {
-            alert(error);
+            showModal("Failed", `Failed to bind invited code: ${error}`, null, "failed");
         }
     }
 
@@ -114,7 +128,7 @@ export default function Invite() {
                 <div className="text-white text-center mt-[10px]">No invitation code? <span className="cursor-pointer underline" onClick={() => { navigate('/dashboard'); }}>Skip</span></div>
 
                 {/* Success Popup */}
-                {success && (
+                {/* {success && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div className="bg-white rounded-lg shadow-lg p-6 w-[300px] text-center">
                             <h2 className="text-2xl font-bold text-green-500">Success!</h2>
@@ -127,7 +141,7 @@ export default function Invite() {
                             </button>
                         </div>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     );

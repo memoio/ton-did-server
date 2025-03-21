@@ -1,8 +1,25 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTonAddress } from '@tonconnect/ui-react';
 
 const Navigation = () => {
+    const address = useTonAddress();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // 监听myVariable的变化
+        console.log(address)
+        if (address !== "") {
+            // 当myVariable为true时，触发页面跳转
+            navigate('/refer');
+        }
+    }, [address]);
+
     return (
         <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[3%] px-[7%]'>
+            <img src={"/Images/line1.svg"} className="absolute top-0 left-0" width={93} height={114.5} alt="" />
+            <img src={"/Images/line2.svg"} className="absolute top-0 right-0" width={93} height={114.5} alt="" />
             <div className='w-full flex flex-col items-center z-[500] gap-4'>
                 <img src={"/Images/create-did.svg"} className="" width={302.13} height={203.13} alt="" />
                 <div className='flex flex-col gap-4'>
@@ -10,26 +27,26 @@ const Navigation = () => {
                 </div>
                 <div className='w-full flex flex-col gap-3'>
                     <div className='grid grid-cols-3 gap-2 w-full'>
-                        <div className="border border-[#05F292] border-solid rounded-[15px]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
-                                <div className="rounded-full bg-white items-center justify-center flex">
-                                    <img src={"/Images/profile.svg"} width={15} height={15} alt="" />
+                        <div className="border border-[#05F292] border-solid rounded-[15px] bg-[#05F2924D]">
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] flex items-center justify-center'>
+                                <div className="rounded-full items-center justify-center flex">
+                                    <img src={"/Images/createDID.svg"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='phetsarath2 text-[15px] text-white'>Create DID</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
                             <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
-                                <div className="rounded-full bg-white items-center justify-center flex">
-                                    <img src={"/Images/profile.svg"} width={15} height={15} alt="" />
+                                <div className="rounded-full items-center justify-center flex">
+                                    <img src={"/Images/checkIn.svg"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='phetsarath2 text-[15px] text-white'>Check In</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
                             <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
-                                <div className="rounded-full bg-white items-center justify-center flex">
-                                    <img src={"/Images/profile.svg"} width={15} height={15} alt="" />
+                                <div className="rounded-full items-center justify-center flex">
+                                    <img src={"/Images/profile1.svg"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='phetsarath2 text-[15px] text-white'>Profile</p>
                             </Link>
@@ -38,32 +55,20 @@ const Navigation = () => {
                     <div className='grid grid-cols-2 gap-2 w-full'>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
                             <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
-                                <div className="rounded-full bg-white items-center justify-center flex">
-                                    <img src={"/Images/profile.svg"} width={15} height={15} alt="" />
+                                <div className="rounded-full items-center justify-center flex">
+                                    <img src={"/Images/shareTG.svg"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='phetsarath2 text-[15px] text-white'>Share to Twitter</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
                             <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
-                                <div className="rounded-full bg-white items-center justify-center flex">
-                                    <img src={"/Images/profile.svg"} width={15} height={15} alt="" />
+                                <div className="rounded-full items-center justify-center flex">
+                                    <img src={"/Images/shareX.svg"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='phetsarath2 text-[15px] text-white'>Share to Twitter</p>
                             </Link>
                         </div>
-                        {/* <button className='w-full h-[42px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                            <p className='phetsarath2 text-[15px] text-black'>Share to Twitter</p>
-                            <div className="w-[18px] h-[18px] rounded-full bg-white items-center justify-center flex">
-                                <img src={"/Images/arrow.svg"} width={8.4} height={9.6} alt="" />
-                            </div>
-                        </button>
-                        <button className='w-full h-[42px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                            <p className='phetsarath2 text-[15px] text-black'>Share to Telegram</p>
-                            <div className="w-[18px] h-[18px] rounded-full bg-white items-center justify-center flex">
-                                <img src={"/Images/arrow.svg"} width={8.4} height={9.6} alt="" />
-                            </div>
-                        </button> */}
 
                     </div>
                 </div>

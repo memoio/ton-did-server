@@ -9,7 +9,7 @@ const CreatedDid = () => {
     const { didInfo } = useDIDInfo();
     const medias = ["/Images/tel.svg", "/Images/x.svg", "/Images/mail.svg", "/Images/discord.svg", "/Images/email.svg"]
     return (
-        <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-4'>
+        <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-4 overflow-y-scroll'>
             <div className='flex flex-row gap-2 items-center'>
                 <p className='flex paytone text-[28px] font-normal text-white'>Data</p>
                 <p className='flex paytone text-[28px] font-normal text-[#05F292]'> DID</p>
@@ -35,14 +35,15 @@ const CreatedDid = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='px-3 w-full mt-11 flex flex-col gap-4'>
+                    <div className='px-3 w-full h-[100px] mt-11 flex flex-raw gap-4 border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]'>
                         <div className='flex flex-col gap-6 w-full'>
-                            <p className='text-[18px] font-bold paytone text-white'>NO.{didInfo.number}</p>
+                            <p className='text-[18px] font-bold paytone text-[#05F292]'>NO.{didInfo.number}</p>
                             <p className='text-[#C3C3C3] w-[70%]'>{didInfo.did}</p>
                         </div>
                         {/* <Link href={"/dashboard/create"} className='bg-[#05F292] rounded-[38px] flex items-center justify-center font-bold text-black h-[42px]'>Ok</Link> */}
                     </div>
                 </div>
+                <div className='h-[50px]'></div>
             </div>
 
             <Footer />

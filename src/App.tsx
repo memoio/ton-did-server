@@ -8,7 +8,6 @@ const Start = () => {
   const { setCode } = useRefer();
 
   const referralCode = searchParams.get('referralCode');
-
   const handleStart = () => {
     if (referralCode && referralCode?.length === 6) {
       setCode(referralCode);
@@ -21,8 +20,9 @@ const Start = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center bg relative ">
-      <img src={"/Images/token.svg"} className="absolute top-0 left-0" width={149.58} height={204.3} alt="" />
-      <img src={"/Images/ellipse.svg"} className="absolute top-0 right-0" width={447} height={666} alt="" />
+      <img src={"/Images/airdrop1.svg"} className="absolute top-0 right-0" width={229.25} height={324.64} alt="" />
+      <img src={"/Images/airdrop2.svg"} className="absolute top-90 left-0" width={129.72} height={183.7} alt="" />
+      {/* <img src={"/Images/ellipse.svg"} className="absolute top-0 right-0" width={447} height={666} alt="" /> */}
       <div className="flex flex-col gap-2 items-center z-[600]">
         <div className="flex flex-row items-center gap-2">
           <p className="text-white font-semibold">mini app</p>

@@ -12,6 +12,7 @@ interface UserInfo {
     points: number;
 
     newUser: boolean,
+    bindedCode: boolean,
 }
 
 interface AuthContextType {
@@ -60,13 +61,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
                                 "token": response.data.data.token,
                             },
                         });
-                        console.log(response.data.data);
+                        console.log(userresponse.data.data);
 
                         if (userresponse.data.result === 1) {
                             setUserInfo({
                                 uid: response.data.data.uid,
                                 token: response.data.data.token,
                                 newUser: response.data.data.lastLoginTime === 0 ? true : false,
+                                bindedCode: userresponse.data.data.parentUid === null ? false : true,
                                 inviteCode: userresponse.data.data.inviteCode,
                                 inviteCount: userresponse.data.data.inviteCount,
                                 points: userresponse.data.data.points,

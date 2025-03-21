@@ -8,6 +8,8 @@ import { API_URL } from '../config/config';
 import { useAuth } from '../../context/AuthContext';
 import { useDIDInfo } from '../../context/DIDContext';
 import axios from 'axios';
+import "../../App.css";
+import { showModal } from '../popup/popup';
 
 const CreateDid = () => {
     const [open, setOpen] = useState(false);
@@ -23,6 +25,7 @@ const CreateDid = () => {
             const address = splitted[1];
 
             try {
+                setOpen(true);
                 const response1 = await axios.post(API_URL.DID_CREATE_ADMIN, {
                     address,
                 });
@@ -42,16 +45,17 @@ const CreateDid = () => {
                     });
 
                     if (response2.status === 200) {
+                        showModal("Create DID Success", `Create DID Success`, close);
                         console.log(response2.data)
                     }
 
                 } else if (response1.status === 501) {
-                    alert(`Error: ${response1.status} - ${response1.data.preview}`);
+                    showModal("Create DID Failed", `Error: ${response1.status} - ${response1.data.preview}`, close, "failed");
                 } else {
-                    alert(`Error: ${response1.status} - ${response1.data.Message}`);
+                    showModal("Create DID Failed", `Error: ${response1.status} - ${response1.data.Message}`, close, "failed");
                 }
             } catch (err: any) {
-                alert(`Error: ${err.status}-${err.data}`);
+                showModal("Create DID Failed", `Error: ${err.status}-${err.data}`, close, "failed");
                 return
             }
         }
@@ -61,7 +65,7 @@ const CreateDid = () => {
         setOpen(false)
     }
     return (
-        <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-4'>
+        <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-4 overflow-y-scroll'>
             <div className='flex flex-row gap-2 items-center'>
                 <p className='flex paytone text-[28px] font-normal text-white'>Data</p>
                 <p className='flex paytone text-[28px] font-normal text-[#05F292]'> DID</p>
@@ -107,15 +111,18 @@ const CreateDid = () => {
                             </div>
                         </div>
                         <button onClick={handleCreate} className='bg-[#05F292] rounded-[38px] flex items-center justify-center font-bold text-black h-[42px]'>Create</button>
-                        <p className='flex text-center text-[11px]'>Total cost includes gas fees for Smart Account deployment, NFT minting and future profile upgrades.</p>
+                        <p className='flex nunito-400 text-center text-[11px]'>Total cost includes gas fees for <span className="text-[#05F292]"> Smart Account deployment, NFT minting and future profile upgrades</span>.</p>
                     </div>
                 </div>
+                <div className='h-[50px]'></div>
+                <div className='h-[50px]'></div>
             </div>
             {
                 open && (
                     <GeneralModal handleClose={close} />
                 )
             }
+            <div className='h-[50px]'></div>
 
             <Footer />
         </div>
