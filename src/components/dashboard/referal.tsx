@@ -49,7 +49,8 @@ const Referal = () => {
     ];
 
     const handleInvite = (index: number) => {
-        window.open(urls[index].url, '_blank');
+        // window.open(urls[index].url, '_blank');
+        window.location.href = urls[index].url;
     }
 
     const handleInviteTG = () => {
