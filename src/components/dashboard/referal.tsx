@@ -44,8 +44,8 @@ const Referal = () => {
 `;
     const urls = [
         // { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        { url: 'https://telegram.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        // { url: 'tg://msg_url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+        // { url: 'https://telegram.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+        { url: 'tg://msg_url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
         // { url: `tg://msg?text=${encodeURIComponent(tgText + "\n" + currentUrl)}` },
         { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) },
     ];
