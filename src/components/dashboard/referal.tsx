@@ -7,6 +7,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { shareURL } from '@telegram-apps/sdk';
 
+declare global {
+    interface Window {
+        Telegram?: {
+            WebApp: {
+                openLink(url: string): void;
+                // 其他你可能需要的方法
+                sendData(data: string): void;
+                initDataUnsafe: {
+                    user?: {
+                        id: number;
+                        first_name?: string;
+                        last_name?: string;
+                        username?: string;
+                    };
+                };
+            };
+        };
+    }
+}
+
 const Referal = () => {
     const { userInfo } = useAuth();
     const [showPopup, setShowPopup] = useState<string | null>(null);
