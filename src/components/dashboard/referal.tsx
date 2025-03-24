@@ -52,9 +52,17 @@ const Referal = () => {
     ];
 
     const handleInvite = (index: number) => {
-        if (shareURL.isAvailable() && index === 0) {
-            shareURL(currentUrl, tgText);
-        } else {
+        // if (shareURL.isAvailable() && index === 0) {
+        //     shareURL(currentUrl, tgText);
+        // } else {
+        //     window.open(urls[index].url, '_blank');
+        // }
+
+        if (window.Telegram?.WebApp?.openLink) {
+            window.Telegram.WebApp.openLink(urls[index].url);
+        }
+        // 普通浏览器环境
+        else {
             window.open(urls[index].url, '_blank');
         }
     }
