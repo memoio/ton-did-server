@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tailwindcss/vite": "^4.0.0",
+    "@telegram-apps/sdk": "^3.5.3",
     "@ton/core": "^0.59.1",
     "@tonconnect/ui-react": "^2.0.11",
     "axios": "^1.7.9",

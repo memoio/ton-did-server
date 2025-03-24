@@ -5,6 +5,7 @@ import { TON_DID_WEB } from '../config/config';
 import { useAuth } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { shareURL } from '@telegram-apps/sdk';
 
 const Referal = () => {
     const { userInfo } = useAuth();
@@ -43,19 +44,29 @@ const Referal = () => {
 🚀 Click ${currentUrl} to start your data value-added journey!
 `;
     const urls = [
-        // { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+        { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
         // { url: 'https://telegram.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        { url: 'tg://msg_url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
+        // { url: 'tg://msg_url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
         // { url: `tg://msg?text=${encodeURIComponent(tgText + "\n" + currentUrl)}` },
-        { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) },
+        { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText), },
     ];
 
     const handleInvite = (index: number) => {
-        window.open(urls[index].url, '_blank');
+        window.open(urls[index].url, '_parent');
+        window.location.href = urls[index].url;
+        if (shareURL.isAvailable() && index === 0) {
+            shareURL(currentUrl, tgText);
+        } else {
+            window.open(urls[index].url, '_blank');
+        }
     }
 
     const handleInviteTG = () => {
-        window.open(urls[0].url, '_blank');
+        if (shareURL.isAvailable()) {
+            shareURL(currentUrl, tgText);
+        } else {
+            window.open(urls[0].url, '_blank');
+        }
     }
 
     const handleCopy = () => {
