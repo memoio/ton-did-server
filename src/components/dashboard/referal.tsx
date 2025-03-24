@@ -52,8 +52,6 @@ const Referal = () => {
     ];
 
     const handleInvite = (index: number) => {
-        window.open(urls[index].url, '_parent');
-        window.location.href = urls[index].url;
         if (shareURL.isAvailable() && index === 0) {
             shareURL(currentUrl, tgText);
         } else {
