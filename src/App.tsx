@@ -35,7 +35,7 @@ const Start = () => {
     alert(referralCode);
   }
 
-  const referralCode = window.Telegram?.WebApp.initDataUnsafe.start_param;
+  const referralCode = window.Telegram?.WebApp.initData;
 
   // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
