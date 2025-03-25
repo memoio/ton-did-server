@@ -5,15 +5,16 @@ import { TON_DID_WEB } from '../config/config';
 import { useAuth } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { shareURL } from '@telegram-apps/sdk';
 
 declare global {
     interface Window {
         Telegram?: {
             WebApp: {
                 openLink(url: string): void;
+                openTelegramLink(url: string): void;
                 // 其他你可能需要的方法
                 sendData(data: string): void;
+                startParam: string;
                 initDataUnsafe: {
                     user?: {
                         id: number;
@@ -65,35 +66,23 @@ const Referal = () => {
 `;
     const urls = [
         { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        // { url: 'https://telegram.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        // { url: 'tg://msg_url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
-        // { url: `tg://msg?text=${encodeURIComponent(tgText + "\n" + currentUrl)}` },
         { url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText), },
     ];
 
     const handleInvite = (index: number) => {
-        // if (shareURL.isAvailable() && index === 0) {
-        //     shareURL(currentUrl, tgText);
-        // } else {
-        //     window.open(urls[index].url, '_blank');
-        // }
-
-        if (window.Telegram?.WebApp?.openLink) {
-            // window.Telegram.WebApp.openLink(urls[index].url);
-            alert("telegram");
-            window.Telegram.WebApp.openLink(urls[index].url);
+        if (window.Telegram?.WebApp?.openTelegramLink && index == 0) {
+            window.Telegram.WebApp.openTelegramLink(urls[index].url);
         }
-        // 普通浏览器环境
         else {
-            alert("window");
             window.open(urls[index].url, '_blank');
         }
     }
 
     const handleInviteTG = () => {
-        if (shareURL.isAvailable()) {
-            shareURL(currentUrl, tgText);
-        } else {
+        if (window.Telegram?.WebApp?.openTelegramLink) {
+            window.Telegram.WebApp.openTelegramLink(urls[0].url);
+        }
+        else {
             window.open(urls[0].url, '_blank');
         }
     }
@@ -144,17 +133,6 @@ const Referal = () => {
             <div className='w-full flex flex-col gap-8 z-[400]'>
                 <div className='flex flex-col gap-3'>
                     <div className='flex flex-col gap-4'>
-                        {/* <div className='w-full h-[56px] flex flex-row items-center justify-between px-[5%]'>
-                            <div className='flex flex-col leading-none gap-1'>
-                                <p className='font-bold text-white phetsarath2'>Active Referrals</p>
-                                <p className='font-bold text-[#05F292]'>{userInfo?.inviteCount}</p>
-                            </div>
-                            <img src={"/Images/Line.svg"} width={1} height={1} alt='' />
-                            <div className='flex flex-col leading-none justify-end items-end gap-1'>
-                                <p className='font-bold text-white phetsarath2'>Points Earned</p>
-                                <p className='font-bold text-[#05F292] phetsarath2'>{userInfo?.points}</p>
-                            </div>
-                        </div> */}
                         {
                             invites.map((item, index) => (
                                 <div key={index} className='w-full h-[70px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#022918] border-solid rounded-[15px]'>

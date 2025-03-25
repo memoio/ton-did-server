@@ -1,13 +1,37 @@
 import { useRefer } from './context/ReferContext';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./App.css";
 
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp: {
+        openLink(url: string): void;
+        openTelegramLink(url: string): void;
+        // 其他你可能需要的方法
+        sendData(data: string): void;
+        startParam: string;
+        initDataUnsafe: {
+          user?: {
+            id: number;
+            first_name?: string;
+            last_name?: string;
+            username?: string;
+          };
+        };
+      };
+    };
+  }
+}
+
 const Start = () => {
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { setCode } = useRefer();
 
-  const referralCode = searchParams.get('referralCode');
+  const referralCode = window.Telegram?.WebApp.startParam;
+
+  // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
     if (referralCode && referralCode?.length === 6) {
       setCode(referralCode);

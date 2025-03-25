@@ -71,7 +71,7 @@ const Dashboard = () => {
                             <p className='font-bold text-white phetsarath2'>New Referral Bonus:</p>
                             <div>
                                 <div className='flex flex-row items-center gap-1'>
-                                    <p className='font-bold text-[12px] text-[#05F292] phetsarath'>Earn 200 Points Per Invite</p>
+                                    <p className='font-bold text-[12px] text-[#05F292] phetsarath'>When your friend binds the invitation code, he or she will get 500 points, you will get 200 points.</p>
                                 </div>
                             </div>
                         </div>
