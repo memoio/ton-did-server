@@ -33,6 +33,7 @@ const Start = () => {
 
   // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
+    alert(referralCode);
     if (referralCode && referralCode?.length === 6) {
       setCode(referralCode);
     }
