@@ -30,6 +30,11 @@ const Start = () => {
   const navigate = useNavigate();
   const { setCode } = useRefer();
 
+  if (window.Telegram?.WebApp) {
+    const referralCode = window.Telegram?.WebApp.start_param;
+    alert(referralCode);
+  }
+
   const referralCode = window.Telegram?.WebApp.start_param;
 
   // const referralCode = searchParams.get('referralCode');
