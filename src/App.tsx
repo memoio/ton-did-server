@@ -10,17 +10,15 @@ declare global {
         openTelegramLink(url: string): void;
         // 其他你可能需要的方法
         sendData(data: string): void;
-        initParams: string;
         initData: string;
-        start_param: string;
         initDataUnsafe: {
           user?: {
             id: number;
             first_name?: string;
             last_name?: string;
             username?: string;
-            start_param?: string;
           };
+          start_param?: string;
         };
       };
     };
@@ -33,11 +31,11 @@ const Start = () => {
   const { setCode } = useRefer();
 
   if (window.Telegram?.WebApp) {
-    const referralCode = window.Telegram?.WebApp.initDataUnsafe.user?.start_param;
+    const referralCode = window.Telegram?.WebApp.initData;
     alert(referralCode);
   }
 
-  const referralCode = window.Telegram?.WebApp.initDataUnsafe.user?.start_param;
+  const referralCode = window.Telegram?.WebApp.initDataUnsafe.start_param;
 
   // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
