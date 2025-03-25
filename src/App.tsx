@@ -31,11 +31,11 @@ const Start = () => {
   const { setCode } = useRefer();
 
   if (window.Telegram?.WebApp) {
-    const referralCode = window.Telegram?.WebApp.initData;
+    const referralCode = window.Telegram?.WebApp.initDataUnsafe;
     alert(referralCode);
   }
 
-  const referralCode = window.Telegram?.WebApp.initData;
+  const referralCode = window.Telegram?.WebApp.initDataUnsafe.start_param;
 
   // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
