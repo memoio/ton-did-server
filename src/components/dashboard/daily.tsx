@@ -75,7 +75,7 @@ const Daily = () => {
     const address = useTonAddress();
     const { didInfo } = useDIDInfo();
 
-    const currentUrl = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
+    const currentUrl = `${TON_DID_WEB}?startapp=${userInfo?.inviteCode}`;
     const tweetText = `📈I found a platform that can own, manage and monetize your data @MemoLabsOrg!
 
 🚀Currently all users can participate, and you can easily get points rewards by completing tasks, and you can also redeem more value!

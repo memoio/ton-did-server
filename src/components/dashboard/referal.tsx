@@ -47,7 +47,7 @@ const Referal = () => {
 
     ];
 
-    const currentUrl = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
+    const currentUrl = `${TON_DID_WEB}?startapp=${userInfo?.inviteCode}`;
     const tweetText = `📈I found a platform that can own, manage and monetize your data @MemoLabsOrg!
 
 🚀Currently all users can participate, and you can easily get points rewards by completing tasks, and you can also redeem more value!
@@ -158,7 +158,7 @@ const Referal = () => {
             <div className='bg-[#025533] flex flex-col items-center justify-center gap-2 w-[350px] h-[160px] rounded-[16px] border border-[#05F292] border-solid'>
                 <p className='text-[15px] font-bold phetsarath2 text-white'>Your Referral Link</p>
                 <div className='bg-[#FFFFFF21] w-[240px] h-[35px] items-center justify-center flex'>
-                    <p className='text-[#04D5FF] text-[12px]'>{TON_DID_WEB}?referralCode={userInfo?.inviteCode} </p>
+                    <p className='text-[#04D5FF] text-[12px]'>{currentUrl} </p>
                 </div>
                 {/* <p className='text-[14px] phetsarath text-[#05F292]'>You haven’t invited anyone yet</p> */}
                 <div className='flex flex-row items-center gap-3'>

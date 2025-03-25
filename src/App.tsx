@@ -26,20 +26,11 @@ declare global {
 }
 
 const Start = () => {
-  // const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { setCode } = useRefer();
-
-  if (window.Telegram?.WebApp) {
-    const referralCode = window.Telegram?.WebApp.initDataUnsafe;
-    alert(referralCode);
-  }
-
   const referralCode = window.Telegram?.WebApp.initDataUnsafe.start_param;
 
-  // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
-    alert(referralCode);
     if (referralCode && referralCode?.length === 6) {
       setCode(referralCode);
     }

@@ -34,7 +34,7 @@ const Profile = () => {
         });
     }
     const handleCopy3 = () => {
-        const textToCopy = `${TON_DID_WEB}?referralCode=${userInfo?.inviteCode}`;
+        const textToCopy = `${TON_DID_WEB}?startapp=${userInfo?.inviteCode}`;
         navigator.clipboard.writeText(textToCopy).then(() => {
             setShowPopup(`Copied`);
             setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
