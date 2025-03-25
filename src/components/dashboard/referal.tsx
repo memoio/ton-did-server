@@ -80,14 +80,12 @@ const Referal = () => {
 
         if (window.Telegram?.WebApp?.openLink) {
             // window.Telegram.WebApp.openLink(urls[index].url);
-            window.Telegram.WebApp.sendData(JSON.stringify({
-                action: "share",
-                text: "Check this out!",
-                url: "https://example.com"
-            }));
+            alert("telegram");
+            window.Telegram.WebApp.openLink(urls[index].url);
         }
         // 普通浏览器环境
         else {
+            alert("window");
             window.open(urls[index].url, '_blank');
         }
     }
