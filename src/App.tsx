@@ -19,6 +19,7 @@ declare global {
             first_name?: string;
             last_name?: string;
             username?: string;
+            start_param?: string;
           };
         };
       };
@@ -32,11 +33,11 @@ const Start = () => {
   const { setCode } = useRefer();
 
   if (window.Telegram?.WebApp) {
-    const referralCode = window.Telegram?.WebApp.initParams;
+    const referralCode = window.Telegram?.WebApp.initDataUnsafe.user?.start_param;
     alert(referralCode);
   }
 
-  const referralCode = window.Telegram?.WebApp.initData;
+  const referralCode = window.Telegram?.WebApp.initDataUnsafe.user?.start_param;
 
   // const referralCode = searchParams.get('referralCode');
   const handleStart = () => {
