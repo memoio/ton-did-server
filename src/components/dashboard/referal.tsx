@@ -6,27 +6,28 @@ import { useAuth } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
-declare global {
-    interface Window {
-        Telegram?: {
-            WebApp: {
-                openLink(url: string): void;
-                openTelegramLink(url: string): void;
-                // 其他你可能需要的方法
-                sendData(data: string): void;
-                startParam: string;
-                initDataUnsafe: {
-                    user?: {
-                        id: number;
-                        first_name?: string;
-                        last_name?: string;
-                        username?: string;
-                    };
-                };
-            };
-        };
-    }
-}
+// declare global {
+//     interface Window {
+//         Telegram?: {
+//             WebApp: {
+//                 openLink(url: string): void;
+//                 openTelegramLink(url: string): void;
+//                 // 其他你可能需要的方法
+//                 sendData(data: string): void;
+//                 initData: string;
+//                 startParam?: string;
+//                 initDataUnsafe: {
+//                     user?: {
+//                         id: number;
+//                         first_name?: string;
+//                         last_name?: string;
+//                         username?: string;
+//                     };
+//                 };
+//             };
+//         };
+//     }
+// }
 
 const Referal = () => {
     const { userInfo } = useAuth();
