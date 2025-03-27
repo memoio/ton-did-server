@@ -32,7 +32,7 @@ const Footer = () => {
         {
             img: "/Images/search.svg",
             actImg: "/Images/searchact.svg",
-            title: "Daily Check In",
+            title: "Check In",
             act: "daily",
             link: "/dashboard/daily",
         },

@@ -43,34 +43,40 @@ const Daily = () => {
             done: "Invited",
         },
     ]
-    // const communityquest = [
-    //     {
-    //         title: "Follow our Twitter",
-    //         points: "+50 points",
-    //         img: "/Images/x.jpeg",
-    //         url: "https://x.com/MemoLabsOrg",
-    //     },
-    //     {
-    //         title: "Join our TG channel",
-    //         points: "+50 points",
-    //         img: "/Images/tg.png",
-    //         url: "https://t.me/memolabsio"
-    //     },
-    //     {
-    //         title: "Join our discord",
-    //         points: "+50 points",
-    //         img: "/Images/discord.png",
-    //         url: 'https://discord.com/invite/YG4Ydv2E7X',
-    //     },
-    //     {
-    //         title: "Share to Twitter",
-    //         points: "+50 points",
-    //         img: "/Images/x.jpeg",
-    //         url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet1Text) + '&url=' + encodeURIComponent(tweetUrl)
-    //     },
-    // ]
-    // const { dailyAction, questAction, setDaily, setQuest } = useAction();
-    const { dailyAction, setDaily } = useAction();
+    const communityquest = [
+        {
+            title: "Follow our Twitter",
+            points: "+50 points",
+            img: "/Images/x.jpeg",
+            url: "https://x.com/MemoLabsOrg",
+            pending: "Follow",
+            done: "Followed",
+        },
+        {
+            title: "Join our TG channel",
+            points: "+50 points",
+            img: "/Images/tg.png",
+            url: "https://t.me/memolabsio",
+            pending: "Join",
+            done: "Joined",
+        },
+        {
+            title: "Join our discord",
+            points: "+50 points",
+            img: "/Images/discord.png",
+            url: 'https://discord.com/invite/YG4Ydv2E7X',
+            pending: "Join",
+            done: "Joined",
+        },
+        // {
+        //     title: "Share to Twitter",
+        //     points: "+50 points",
+        //     img: "/Images/x.jpeg",
+        //     url: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet1Text) + '&url=' + encodeURIComponent(tweetUrl)
+        // },
+    ]
+    const { dailyAction, questAction, setDaily, setQuest } = useAction();
+    // const { dailyAction, setDaily } = useAction();
     const { userInfo, setPoints } = useAuth();
     const address = useTonAddress();
     const { didInfo } = useDIDInfo();
@@ -133,38 +139,38 @@ const Daily = () => {
         }
     }
 
-    // const handleQuestClick = async (index: number) => {
-    //     try {
-    //         if (address != "") {
-    //             if (didInfo.number != "000000") {
-    //                 window.open(communityquest[index].url, '_blank');
-    //                 const actionId = 50 + index;
-    //                 console.log(actionId);
-    //                 const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-    //                     "action": actionId
-    //                 }, {
-    //                     headers: {
-    //                         "accept": "application/hal+json",
-    //                         "Content-Type": "application/json",
-    //                         "uid": userInfo?.uid,
-    //                         "token": userInfo?.token
-    //                     }
-    //                 });
+    const handleQuestClick = async (index: number) => {
+        try {
+            if (address != "") {
+                if (didInfo.number != "000000") {
+                    window.open(communityquest[index].url, '_blank');
+                    const actionId = 50 + index;
+                    console.log(actionId);
+                    const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
+                        "action": actionId
+                    }, {
+                        headers: {
+                            "accept": "application/hal+json",
+                            "Content-Type": "application/json",
+                            "uid": userInfo?.uid,
+                            "token": userInfo?.token
+                        }
+                    });
 
-    //                 if (respond.status === 200 && respond.data.result === 1) {
-    //                     setPoints(respond.data.data.totalPoints);
-    //                     setQuest(index);
-    //                 }
+                    if (respond.status === 200 && respond.data.result === 1) {
+                        setPoints(respond.data.data.totalPoints);
+                        setQuest(index);
+                    }
 
-    //             } else {
-    //                 alert("Please create did first!")
-    //             }
-    //         }
-    //     } catch (error) {
-    //         alert(error);
-    //         return
-    //     }
-    // }
+                } else {
+                    alert("Please create did first!")
+                }
+            }
+        } catch (error) {
+            alert(error);
+            return
+        }
+    }
     return (
         <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[10%] overflow-hidden px-[6%] gap-8 overflow-y-scroll'>
             <div className='flex flex-col items-center'>
@@ -190,8 +196,30 @@ const Daily = () => {
                                         {/* <button onClick={() => handleDailyClick(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
                                             <p className='phetsarath2 text-[15px] text-black'>Invite</p>
                                         </button> */}
-                                        <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[65px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
+                                        <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[70px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
                                             <p className="phetsarath2 text-[15px] text-black">{dailyAction.has(index) ? item.done : item.pending}</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className='flex flex-col gap-3'>
+                    <p className='paytone text-[18px] font-bold text-white'>MEMO Community Quests</p>
+                    <div className='flex flex-col gap-2'>
+                        {
+                            communityquest.map((item, index) => (
+                                <div key={index} className={`w-full h-[65px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]`}>
+                                    <div className='flex flex-row items-center justify-between w-full'>
+                                        <div className='flex flex-row gap-3 items-center'>
+                                            <div className='flex flex-col nunito-regular'>
+                                                <p className='font-bold text-white nunito-regular'>{item.title}</p>
+                                                <p className='font-bold text-[13px] text-[#05F292] nunito-regular'>{item.points}</p>
+                                            </div>
+                                        </div>
+                                        <button onClick={() => handleQuestClick(index)} disabled={questAction.has(index)} className={`w-[70px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${questAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
+                                            <p className="phetsarath2 text-[15px] text-black">{questAction.has(index) ? item.done : item.pending}</p>
                                         </button>
                                     </div>
                                 </div>
@@ -214,29 +242,6 @@ const Daily = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className='flex flex-col gap-3'>
-                    <p className='paytone text-[18px] font-bold text-white'>MEMO Community Quests</p>
-                    <div className='flex flex-col gap-2'>
-                        {
-                            communityquest.map((item, index) => (
-                                <div key={index} className='element w-full h-[65px] flex flex-row items-center justify-between px-[5%]'>
-                                    <div className='flex flex-row items-center gap-3'>
-                                        <div className='w-[40px] h-[40px] rounded-full flex items-center justify-center'>
-                                            <img src={item.img} width={30} height={30} alt='' />
-                                        </div>
-                                        <div className='flex flex-col leading-none gap-3'>
-                                            <p className='font-bold text-white phetsarath2'>{item.title}</p>
-                                            <p className='text-[#C3C3C3] text-[12px] phetsarath'>{item.points}</p>
-                                        </div>
-                                    </div>
-                                    <div className='text-2xl text-white' onClick={() => handleQuestClick(index)}>
-                                        {questAction.has(index) ? <TbCheck /> : <TbChevronRight />}
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div> */}
                 <div className='h-[50px]'></div>
             </div>
             <img src={"/Images/bgexport.svg"} className="fixed bottom-2 left-0 w-full" width={375} height={375} alt="" />

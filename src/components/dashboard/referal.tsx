@@ -36,12 +36,12 @@ const Referal = () => {
     const invites = [
         {
             img: "/Images/token2.svg",
-            point: "300 points",
+            point: "200 points",
             title: "Invite a Friend with Telegram"
         },
         {
             img: "/Images/token2.svg",
-            point: "300 points",
+            point: "200 points",
             title: "Invite a Friend with twitter"
         },
 
