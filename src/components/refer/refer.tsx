@@ -3,12 +3,14 @@ import axios from 'axios';
 import { useAuth } from "../../context/AuthContext";
 import { useRefer } from "../../context/ReferContext";
 import { useNavigate } from 'react-router-dom';
+import { useTonAddress } from '@tonconnect/ui-react';
 import { API_URL } from "../config/config";
 import { showModal } from "../popup/popup";
 
 export default function Invite() {
     const navigate = useNavigate();
     const { userInfo, setBindWallet } = useAuth();
+    const address = useTonAddress();
     const { referCode } = useRefer();
     const [values, setValues] = useState(Array(6).fill("")); // Separate state for each input
 
@@ -69,13 +71,11 @@ export default function Invite() {
             }
             const respond = await axios.post(API_URL.AIRDROP_INVITE_BIND, {
                 "inviteCode": inviteCode,
-                // "projectId": 601
+                "address": address
             }, {
                 headers: {
                     "accept": "application/hal+json",
-                    "Content-Type": "application/json",
-                    "uid": userInfo?.uid,
-                    "token": userInfo?.token
+                    "Content-Type": "application/json"
                 }
             });
             if (respond.status == 200) {
@@ -126,22 +126,6 @@ export default function Invite() {
                     </span>
                 </div>
                 <div className="text-white text-center mt-[10px]">No invitation code? <span className="cursor-pointer underline" onClick={() => { navigate('/dashboard'); }}>Skip</span></div>
-
-                {/* Success Popup */}
-                {/* {success && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                        <div className="bg-white rounded-lg shadow-lg p-6 w-[300px] text-center">
-                            <h2 className="text-2xl font-bold text-green-500">Success!</h2>
-                            <p className="mt-2 text-gray-700">You have entered the correct code.</p>
-                            <button
-                                onClick={() => { setSuccess(false); navigate('/dashboard'); }}
-                                className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-                            >
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                )} */}
             </div>
         </div>
     );

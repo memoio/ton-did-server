@@ -5,13 +5,11 @@ import axios from "axios";
 import { API_URL } from "../components/config/config";
 
 interface UserInfo {
-    uid: string;
-    token: string;
     inviteCode: string;
-    inviteCount: number;
+    inviteCount: string;
     points: number;
 
-    newUser: boolean,
+    pointsRank: string,
     bindedCode: boolean,
 }
 
@@ -39,43 +37,47 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         if (address != "") {
             const bindWallet = async () => {
                 try {
-                    const response = await axios.post(
-                        API_URL.AIRDROP_USER_WALLET_BIND,
-                        {
-                            walletAddress: address,
-                        },
-                        {
-                            headers: {
-                                accept: "application/hal+json",
-                                uid: "11735283", // 根据您的实际情况传入 uid
-                                token: "37595d3a6e43876682b37cdcf941938e", // 根据您的实际情况传入 token
-                                "Content-Type": "application/json",
+                    const ipResponse = await axios.get("https://api.ipify.org?format=json")
+                    if (ipResponse.status === 200) {
+                        console.log(ipResponse.data.ip)
+                        const response = await axios.post(
+                            API_URL.AIRDROP_USER_WALLET_BIND,
+                            {
+                                address: address,
+                                source: "Ton-DID",
+                                useragent: navigator.userAgent,
+                                ip: ipResponse.data.ip,
                             },
+                            {
+                                headers: {
+                                    accept: "application/hal+json",
+                                    "Content-Type": "application/json",
+                                },
+                            }
+                        );
+                        if (response.data.result === 1) {
+                            const userresponse = await axios.get(API_URL.AIRDROP_USER_INFO, {
+                                params: {
+                                    "address": address,
+                                },
+                            });
+                            console.log(userresponse)
+
+                            if (userresponse.data.result === 1) {
+                                setUserInfo({
+                                    inviteCode: userresponse.data.data.inviteCode,
+                                    inviteCount: userresponse.data.data.inviteCount,
+                                    points: userresponse.data.data.points,
+                                    bindedCode: userresponse.data.data.parentUid === null,
+                                    pointsRank: userresponse.data.data.pointsRank,
+                                })
+                            }
                         }
-                    );
-
-                    if (response.data.result === 1) {
-                        const userresponse = await axios.get(API_URL.AIRDROP_USER_INFO, {
-                            headers: {
-                                "uid": response.data.data.uid,
-                                "token": response.data.data.token,
-                            },
-                        });
-                        console.log(userresponse.data.data);
-
-                        if (userresponse.data.result === 1) {
-                            setUserInfo({
-                                uid: response.data.data.uid,
-                                token: response.data.data.token,
-                                newUser: response.data.data.lastLoginTime === 0 ? true : false,
-                                bindedCode: userresponse.data.data.parentUid === null ? false : true,
-                                inviteCode: userresponse.data.data.inviteCode,
-                                inviteCount: userresponse.data.data.inviteCount,
-                                points: userresponse.data.data.points,
-                            })
+                        else {
+                            alert(`Failed to bind wallet: ${JSON.stringify(response.data)}`);
                         }
                     } else {
-                        alert(`Failed to bind wallet: ${JSON.stringify(response.data)}`);
+                        alert(`Failed to get address: ${JSON.stringify(ipResponse.data)}`);
                     }
                 } catch (error) {
                     alert(`Error binding wallet: ${error}`);

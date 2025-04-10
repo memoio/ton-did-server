@@ -114,13 +114,12 @@ const Daily = () => {
                     const actionId = 70 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                        "action": actionId
+                        "action": actionId,
+                        "address": address
                     }, {
                         headers: {
                             "accept": "application/hal+json",
                             "Content-Type": "application/json",
-                            "uid": userInfo?.uid,
-                            "token": userInfo?.token
                         }
                     });
 
@@ -147,13 +146,12 @@ const Daily = () => {
                     const actionId = 50 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                        "action": actionId
+                        "action": actionId,
+                        "address": address
                     }, {
                         headers: {
                             "accept": "application/hal+json",
                             "Content-Type": "application/json",
-                            "uid": userInfo?.uid,
-                            "token": userInfo?.token
                         }
                     });
 
