@@ -43,8 +43,8 @@ const Dashboard = () => {
                 <div className='flex flex-col gap-3'>
                     <p className='paytone text-[18px] font-bold text-white'>Recent Activity</p>
                     <div className='flex flex-col gap-2'>
-                        <div className='w-full h-[56px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
-                            <div className='flex flex-col leading-none gap-1'>
+                        <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
+                            <div className='flex flex-col leading-none gap-2'>
                                 <p className='font-bold text-[16px] text-white phetsarath2'>Completed Daily Task</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
@@ -54,12 +54,8 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-full h-[56px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
-                            {/* <div className='flex flex-row items-center gap-1'>
-                                <p className='font-bold text-[#C3C3C3] phetsarath'>Shared Referral Link</p>
-                                <p className='font-bold text-[#05F292] phetsarath'>(+20 Points)</p>
-                            </div> */}
-                            <div className='flex flex-col leading-none gap-1'>
+                        <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
+                            <div className='flex flex-col leading-none gap-2'>
                                 <p className='font-bold text-[16px] text-white phetsarath2'>Completed Community Task</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
@@ -73,8 +69,8 @@ const Dashboard = () => {
                 </div>
                 <div className='flex flex-col gap-3'>
                     <p className='paytone text-[18px] font-bold text-white'>Notifications</p>
-                    <div className='w-full h-[56px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
-                        <div className='flex flex-col leading-none gap-1'>
+                    <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
+                        <div className='flex flex-col leading-none gap-2'>
                             <p className='font-bold text-white phetsarath2'>New Referral Bonus:</p>
                             <div>
                                 <div className='flex flex-row items-center gap-1'>

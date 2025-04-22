@@ -3,35 +3,12 @@ import { useState } from 'react'
 import Footer from '../reusable/footer';
 import { TON_DID_WEB } from '../config/config';
 import { useAuth } from "../../context/AuthContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-
-// declare global {
-//     interface Window {
-//         Telegram?: {
-//             WebApp: {
-//                 openLink(url: string): void;
-//                 openTelegramLink(url: string): void;
-//                 // 其他你可能需要的方法
-//                 sendData(data: string): void;
-//                 initData: string;
-//                 startParam?: string;
-//                 initDataUnsafe: {
-//                     user?: {
-//                         id: number;
-//                         first_name?: string;
-//                         last_name?: string;
-//                         username?: string;
-//                     };
-//                 };
-//             };
-//         };
-//     }
-// }
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Referal = () => {
     const { userInfo } = useAuth();
-    const [showPopup, setShowPopup] = useState<string | null>(null);
+    const [copy, setCopy] = useState(false);
 
     const invites = [
         {
@@ -90,8 +67,8 @@ const Referal = () => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(currentUrl).then(() => {
-            setShowPopup(`Copied`);
-            setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
+            setCopy(true);
+            setTimeout(() => setCopy(false), 1500);
         }).catch(() => {
             alert('Failed to copy.');
         });
@@ -170,18 +147,18 @@ const Referal = () => {
                     </button>
                     <button onClick={handleCopy} className='w-[120px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-white hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
-                            <img src={"/Images/cop.svg"} width={18} height={18} alt='' />
+                            <img src={copy ? "/Images/done2.svg" : "/Images/cop.svg"} width={18} height={18} alt='' />
                             <p className='text-[10px] phetsarath text-[#074D35]'>Copy link</p>
                         </div>
                     </button>
                 </div>
             </div>
-            {showPopup && (
+            {/* {showPopup && (
                 <div className="fixed bottom-22 right-4 bg-[#04D582] text-white text-[18px] sm:text-[20px] md:text-[22px] px-6 py-4 rounded-md shadow-lg flex items-center gap-3 animate-slide-in-up z-[50]">
                     <FontAwesomeIcon icon={faCircleCheck} style={{ color: "white" }} />
                     <p>{showPopup}</p>
                 </div>
-            )}
+            )} */}
             <div className='h-[50px]'></div>
             <Footer />
         </div>

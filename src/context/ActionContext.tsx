@@ -52,6 +52,7 @@ export const ActionProvider = ({ children }: ActionContextProviderProps) => {
                         // eslint-disable-next-line
                         if (oneTimeRespond.data.data.length > 0) {
                             oneTimeRespond.data.data.some((element: any) => {
+                                console.log(element);
                                 const action = element.action;
                                 if (action >= 50 && action <= 53) {
                                     setQuestAction((prev) => new Set(prev).add(action - 50));
@@ -74,6 +75,7 @@ export const ActionProvider = ({ children }: ActionContextProviderProps) => {
                         // eslint-disable-next-line
                         if (dailyRespond.data.data.length > 0) {
                             dailyRespond.data.data.forEach((element: any) => {
+                                console.log(element);
                                 if (element.action <= 100) {
                                     const action = element.action - 70;
                                     const preDayTime = Date.now() - 86400000;
@@ -84,6 +86,8 @@ export const ActionProvider = ({ children }: ActionContextProviderProps) => {
                             });
                         }
                     }
+                    console.log(questAction);
+                    console.log(dailyAction);
                 } catch (error) {
                     alert(`Error binding wallet: ${error}`);
                     return

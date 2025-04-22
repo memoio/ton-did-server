@@ -6,20 +6,23 @@ import { TON_DID_WEB } from '../config/config';
 import { useDIDInfo } from "../../context/DIDContext";
 import { useAuth } from "../../context/AuthContext";
 import { useTonAddress } from '@tonconnect/ui-react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
     const { didInfo } = useDIDInfo();
     const { userInfo } = useAuth();
     const address = useTonAddress();
-    const [showPopup, setShowPopup] = useState<string | null>(null);
+    const [copy1, setCopy1] = useState(false);
+    const [copy2, setCopy2] = useState(false);
+    const [copy3, setCopy3] = useState(false);
+    // const [showPopup, setShowPopup] = useState<string | null>(null);
 
     const handleCopy = () => {
         const textToCopy = address;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied`);
-            setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
+            setCopy1(true);
+            setTimeout(() => setCopy1(false), 1500);
         }).catch(() => {
             alert('Failed to copy.');
         });
@@ -27,8 +30,8 @@ const Profile = () => {
     const handleCopy2 = () => {
         const textToCopy = didInfo.did;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied`);
-            setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
+            setCopy2(true);
+            setTimeout(() => setCopy2(false), 1500);
         }).catch(() => {
             alert('Failed to copy.');
         });
@@ -36,8 +39,8 @@ const Profile = () => {
     const handleCopy3 = () => {
         const textToCopy = `${TON_DID_WEB}?startapp=${userInfo?.inviteCode}`;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            setShowPopup(`Copied`);
-            setTimeout(() => setShowPopup(null), 1500); // Hide popup after 1.5 seconds
+            setCopy3(true);
+            setTimeout(() => setCopy3(false), 1500);
         }).catch(() => {
             alert('Failed to copy.');
         });
@@ -57,22 +60,22 @@ const Profile = () => {
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
                                 <p className='font-bold text-white phetsarath2'>Wallet Address</p>
-                                <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                    <p className='phetsarath2 text-[15px] text-black'>{address.slice(0, 6)}...{address.slice(42)}</p>
-                                    <div >
-                                        <img onClick={handleCopy} src={"/Images/copy.svg"} width={11} height={12.22} alt="" />
-                                    </div>
+                                <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
+                                    <p className='phetsarath2 text-[15px] text-black'>
+                                        {address.slice(0, 6)}...{address.slice(43)}
+                                    </p>
+                                    <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy} src={copy1 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>
                             </div>
                         </div>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
                                 <p className='font-bold text-white phetsarath2'>DID</p>
-                                <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                    <p className='phetsarath2 text-[15px] text-black'>{didInfo.did.slice(0, 8)}...{didInfo.did.slice(69)}</p>
-                                    <div >
-                                        <img onClick={handleCopy2} src={"/Images/copy.svg"} width={11} height={12.22} alt="" />
-                                    </div>
+                                <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
+                                    <p className='phetsarath2 text-[15px] text-black'>
+                                        {didInfo.did.slice(0, 8)}...{didInfo.did.slice(70)}
+                                    </p>
+                                    <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy2} src={copy2 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>
                             </div>
                         </div>
@@ -141,24 +144,23 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
-                        <div className='flex flex-row items-center justify-between w-full'>
+                        <div className='flex flex-col items-center justify-between w-full'>
                             <p className='font-bold text-white phetsarath2'>Your Referral Link</p>
                             <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
                                 <p className='phetsarath2 text-[15px] text-black'>{TON_DID_WEB.slice(8, 20)}...</p>
                                 <div >
-                                    <img onClick={handleCopy3} src={"/Images/copy.svg"} width={11} height={12.22} alt="" />
-
+                                    <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy3} src={copy3 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {showPopup && (
+                {/* {showPopup && (
                     <div className="fixed bottom-22 right-4 bg-[#04D582] text-white text-[18px] sm:text-[20px] md:text-[22px] px-6 py-4 rounded-md shadow-lg flex items-center gap-3 animate-slide-in-up z-[50]">
                         <FontAwesomeIcon icon={faCircleCheck} style={{ color: "white" }} />
                         <p>{showPopup}</p>
                     </div>
-                )}
+                )} */}
                 <div className='h-[50px]'></div>
             </div>
             {/* <Image src={"/Images/bgexport.svg"} className="absolute bottom-2 left-0 w-full" width={375} height={375} alt="" /> */}

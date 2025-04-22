@@ -9,7 +9,7 @@ import { showModal } from "../popup/popup";
 
 export default function Invite() {
     const navigate = useNavigate();
-    const { userInfo, setBindWallet } = useAuth();
+    const { userInfo, setBindWallet, addPoint } = useAuth();
     const address = useTonAddress();
     const { referCode } = useRefer();
     const [values, setValues] = useState(Array(6).fill("")); // Separate state for each input
@@ -70,7 +70,7 @@ export default function Invite() {
                 return;
             }
             const respond = await axios.post(API_URL.AIRDROP_INVITE_BIND, {
-                "inviteCode": inviteCode,
+                "code": inviteCode,
                 "address": address
             }, {
                 headers: {
@@ -82,6 +82,7 @@ export default function Invite() {
                 if (respond.data.result == 1) {
                     showModal("Success", "You have entered the correct code.", () => { navigate('/dashboard'); });
                     console.log(respond.data.data);
+                    addPoint(500);
                 } else {
                     showModal("Failed", `Failed to bind invited code: ${respond.data.message}`, null, "failed");
                 }

@@ -16,6 +16,7 @@ interface UserInfo {
 interface AuthContextType {
     setPoints: (points: number) => void;
     setBindWallet: () => void;
+    addPoint: (point: number) => void;
     userInfo: UserInfo | null;
 }
 // Create the context
@@ -102,6 +103,25 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         )
     };
 
+    const addPoint = (point: number) => {
+        setUserInfo(prevUserInfo => {
+            if (!prevUserInfo) {
+                return null;
+            }
+            if (!prevUserInfo.points) {
+                return {
+                    ...prevUserInfo,
+                    points: point,
+                }
+            }
+            return {
+                ...prevUserInfo,
+                points: prevUserInfo.points + point,
+            };
+        }
+        )
+    }
+
     useEffect(() => {
         if (address && address != "" && !isExist) {
             setBindWallet()
@@ -109,7 +129,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }, [address]);
 
     return (
-        <AuthContext.Provider value={{ userInfo, setBindWallet, setPoints }}>
+        <AuthContext.Provider value={{ userInfo, setBindWallet, setPoints, addPoint }}>
             {children}
         </AuthContext.Provider>
     );

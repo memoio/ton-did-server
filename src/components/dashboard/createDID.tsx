@@ -13,7 +13,7 @@ import { showModal } from '../popup/popup';
 
 const CreateDid = () => {
     const [open, setOpen] = useState(false);
-    const { userInfo } = useAuth();
+    const { addPoint } = useAuth();
     const { updateDID } = useDIDInfo();
     const rawAddress = useTonAddress(false);
     const address = useTonAddress();
@@ -32,22 +32,22 @@ const CreateDid = () => {
 
                 if (response1.status === 200) {
                     updateDID();
-                    const actionId = 1;
-                    const response2 = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                        "action": actionId
-                    }, {
-                        headers: {
-                            "accept": "application/hal+json",
-                            "Content-Type": "application/json",
-                            "uid": userInfo?.uid,
-                            "token": userInfo?.token
-                        }
-                    });
+                    // const actionId = 1;
+                    // const response2 = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
+                    //     "actionid": actionId
+                    // }, {
+                    //     headers: {
+                    //         "accept": "application/hal+json",
+                    //         "Content-Type": "application/json",
+                    //     }
+                    // });
+                    addPoint(1000);
+                    showModal("Create DID Success", `Create DID Success`, close);
 
-                    if (response2.status === 200) {
-                        showModal("Create DID Success", `Create DID Success`, close);
-                        console.log(response2.data)
-                    }
+                    // if (response2.status === 200) {
+                    //     showModal("Create DID Success", `Create DID Success`, close);
+                    //     addPoint(200);
+                    // }
 
                 } else if (response1.status === 501) {
                     showModal("Create DID Failed", `Error: ${response1.status} - ${response1.data.preview}`, close, "failed");

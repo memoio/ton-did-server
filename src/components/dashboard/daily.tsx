@@ -77,7 +77,7 @@ const Daily = () => {
     ]
     const { dailyAction, questAction, setDaily, setQuest } = useAction();
     // const { dailyAction, setDaily } = useAction();
-    const { userInfo, setPoints } = useAuth();
+    const { userInfo, addPoint } = useAuth();
     const address = useTonAddress();
     const { didInfo } = useDIDInfo();
 
@@ -114,7 +114,7 @@ const Daily = () => {
                     const actionId = 70 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                        "action": actionId,
+                        "actionid": actionId,
                         "address": address
                     }, {
                         headers: {
@@ -123,9 +123,12 @@ const Daily = () => {
                         }
                     });
 
+                    console.log(respond.data);
                     if (respond.status === 200 && respond.data.result === 1) {
-                        setPoints(respond.data.data.totalPoints);
+                        addPoint(20);
                         setDaily(index);
+                    } else if (respond.status === 200 && respond.data.error !== "") {
+                        alert(respond.data.error);
                     }
 
                 } else {
@@ -146,7 +149,7 @@ const Daily = () => {
                     const actionId = 50 + index;
                     console.log(actionId);
                     const respond = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                        "action": actionId,
+                        "actionid": actionId,
                         "address": address
                     }, {
                         headers: {
@@ -156,7 +159,7 @@ const Daily = () => {
                     });
 
                     if (respond.status === 200 && respond.data.result === 1) {
-                        setPoints(respond.data.data.totalPoints);
+                        addPoint(50);
                         setQuest(index);
                     }
 
@@ -194,7 +197,7 @@ const Daily = () => {
                                         {/* <button onClick={() => handleDailyClick(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
                                             <p className='phetsarath2 text-[15px] text-black'>Invite</p>
                                         </button> */}
-                                        <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[70px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
+                                        <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
                                             <p className="phetsarath2 text-[15px] text-black">{dailyAction.has(index) ? item.done : item.pending}</p>
                                         </button>
                                     </div>
@@ -216,7 +219,7 @@ const Daily = () => {
                                                 <p className='font-bold text-[13px] text-[#05F292] nunito-regular'>{item.points}</p>
                                             </div>
                                         </div>
-                                        <button onClick={() => handleQuestClick(index)} disabled={questAction.has(index)} className={`w-[70px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${questAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
+                                        <button onClick={() => handleQuestClick(index)} disabled={questAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${questAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
                                             <p className="phetsarath2 text-[15px] text-black">{questAction.has(index) ? item.done : item.pending}</p>
                                         </button>
                                     </div>
