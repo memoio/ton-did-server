@@ -6,7 +6,7 @@ export const TEST_AIRDROP_BACKEND_URL = "https://apapitest.memoscan.org/api"
 
 export const PRODUCT_AIRDROP_BACKEND_URL = "https://data-be.metamemo.one"
 
-export const TON_DID_WEB = "https://t.me/tondid_bot/datadid"
+export const TON_DID_WEB = "https://t.me/memodid_bot/datadid"
 export const AIRDROP_BACKEND_URL = PRODUCT_AIRDROP_BACKEND_URL
 export const DID_SERVER_URL = DEV_DID_SERVER_URL
 
