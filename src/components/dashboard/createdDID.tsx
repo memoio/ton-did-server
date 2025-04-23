@@ -35,16 +35,6 @@ const CreatedDid = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <div className='px-3 w-full h-[130px] mt-11 flex flex-row gap-8 border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]'>
-                        <div className='flex flex-col gap-6 w-full'>
-                            <p className='text-[18px] font-bold paytone text-[#05F292] pt-2'>NO.{didInfo.number}</p>
-                            <p className='text-[#C3C3C3] w-[70%]'>
-                                {didInfo.did.slice(0, 32)} <br />
-                                {didInfo.did.slice(32, 64)} <br />
-                                {didInfo.did.slice(64)}
-                            </p>
-                        </div>
-                    </div> */}
                     <div className='px-3 w-full min-h-[130px] mt-11 flex flex-row gap-8 border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]'>
                         <div className='flex flex-col gap-4 w-full'>
                             <p className='text-[18px] font-bold paytone text-[#05F292] !mt-2 m-0'>NO.{didInfo.number}</p>

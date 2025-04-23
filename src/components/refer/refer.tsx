@@ -22,14 +22,11 @@ export default function Invite() {
     }, [referCode])
 
     useEffect(() => {
-        // 监听myVariable的变化
-        console.log(userInfo)
+        console.log(userInfo);
         if (userInfo !== null) {
-            console.log(userInfo);
             if (userInfo.bindedCode === true) {
                 navigate('/dashboard');
             }
-            // 当myVariable为true时，触发页面跳转
         }
     }, [userInfo]);
 

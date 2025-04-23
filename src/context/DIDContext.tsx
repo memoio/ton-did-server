@@ -9,6 +9,7 @@ interface DIDContextType {
     didInfo: {
         did: string;
         number: string;
+        exist: boolean;
     };
     updateDID: () => Promise<void>;
 }
@@ -23,13 +24,15 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
     const [didInfo, setDIDInfo] = useState({
         did: "",
         number: "000000",
+        exist: false,
     });
     const address = useTonAddress(false);
 
-    const setDID = ({ did, number }: { did: string; number: string }) => {
+    const setDID = ({ did, number, exist }: { did: string; number: string, exist: boolean }) => {
         setDIDInfo({
             did: did,
             number: number,
+            exist: exist,
         })
     }
 
@@ -40,7 +43,7 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
             console.log(splitedAddress);
 
             const response = await axios.get(
-                API_URL.DID_INFO,
+                API_URL.AIRDROP_DID_INFO,
                 {
                     params: {
                         "address": splitedAddress,
@@ -49,10 +52,10 @@ export const DIDProvider = ({ children }: DIDContextProviderProps) => {
             );
 
             if (response.status === 200) {
-                console.log("didinfo:", response.data);
                 setDID({
-                    did: response.data.did,
-                    number: response.data.number.toString().padStart(6, '0'),
+                    did: response.data.data.did,
+                    number: response.data.data.number,
+                    exist: response.data.data.exist !== 0,
                 })
             }
         } catch (error) {

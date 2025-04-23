@@ -26,7 +26,7 @@ const CreateDid = () => {
 
             try {
                 setOpen(true);
-                const response1 = await axios.post(API_URL.DID_CREATE_ADMIN, {
+                const response1 = await axios.post(API_URL.AIRDROP_CREATE_DID, {
                     address,
                 });
 

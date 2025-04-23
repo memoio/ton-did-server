@@ -8,7 +8,7 @@ const Did = () => {
 
     return <div>
         {
-            didInfo.number == "000000" ? <CreateDid /> : <CreatedDid />
+            didInfo.exist ? <CreatedDid /> : <CreateDid />
         }
     </div>
 }

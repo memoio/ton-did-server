@@ -103,7 +103,7 @@ const Daily = () => {
     const handleDailyClick = async (index: number) => {
         try {
             if (address != "") {
-                if (didInfo.number != "000000") {
+                if (didInfo.exist) {
                     const urls = [
                         { url: "https://x.com/MemoLabsOrg" },
                         { url: 'https://t.me/share/url?url=' + encodeURIComponent(currentUrl) + '&text=' + encodeURIComponent(tgText) },
@@ -144,7 +144,7 @@ const Daily = () => {
     const handleQuestClick = async (index: number) => {
         try {
             if (address != "") {
-                if (didInfo.number != "000000") {
+                if (didInfo.exist) {
                     window.open(communityquest[index].url, '_blank');
                     const actionId = 50 + index;
                     console.log(actionId);

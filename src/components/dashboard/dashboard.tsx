@@ -16,7 +16,7 @@ const Dashboard = () => {
             <div className='flex flex-col items-center'>
                 <div className='flex flex-col items-center'>
                     <p className='flex paytone text-[43px] praise-regular text-white'>Welcome Back,</p>
-                    <p className='flex paytone text-[28px] font-normal text-[#05F292]'> {didInfo.number === "000000" ? `${address.slice(0, 6)}...${address.slice(42)}` : `${didInfo.did.slice(0, 13)}...${didInfo.did.slice(69)}`}</p>
+                    <p className='flex paytone text-[28px] font-normal text-[#05F292]'> {didInfo.exist ? `${didInfo.did.slice(0, 13)}...${didInfo.did.slice(69)}` : `${address.slice(0, 6)}...${address.slice(42)}`}</p>
                 </div>
             </div>
             <div className='w-full flex flex-col gap-5 z-[400]'>
