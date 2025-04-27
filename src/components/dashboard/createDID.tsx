@@ -32,22 +32,8 @@ const CreateDid = () => {
 
                 if (response1.status === 200) {
                     updateDID();
-                    // const actionId = 1;
-                    // const response2 = await axios.post(API_URL.AIRDROP_RECORD_ADD, {
-                    //     "actionid": actionId
-                    // }, {
-                    //     headers: {
-                    //         "accept": "application/hal+json",
-                    //         "Content-Type": "application/json",
-                    //     }
-                    // });
                     addPoint(1000);
-                    showModal("Create DID Success", `Create DID Success`, close);
-
-                    // if (response2.status === 200) {
-                    //     showModal("Create DID Success", `Create DID Success`, close);
-                    //     addPoint(200);
-                    // }
+                    showModal("Success(+1000 Points)", `Create DID Success`, close);
 
                 } else if (response1.status === 501) {
                     showModal("Create DID Failed", `Error: ${response1.status} - ${response1.data.preview}`, close, "failed");
@@ -111,7 +97,9 @@ const CreateDid = () => {
                             </div>
                         </div>
                         <button onClick={handleCreate} className='bg-[#05F292] rounded-[38px] flex items-center justify-center font-bold text-black h-[42px]'>Create</button>
-                        <p className='flex nunito-400 text-center text-[11px]'>Total cost includes gas fees for <span className="text-[#05F292]"> Smart Account deployment, NFT minting and future profile upgrades</span>.</p>
+                        <p className='inline nunito-400 text-center text-[11px]'>
+                            Total cost includes gas fees for <span className="text-[#05F292]">Smart Account deployment, NFT minting and future profile upgrades</span>.
+                        </p>
                     </div>
                 </div>
                 <div className='h-[50px]'></div>

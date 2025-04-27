@@ -68,7 +68,7 @@ const Footer = () => {
                             ) : (
                                 <img src={item.img} width={28} height={28} alt='' />
                             )}
-                            <p className={`text-[10px] text-[#8D8D8D] ${isActive ? 'text-[#05F293]' : ''}`}>
+                            <p className={`text-[10px] ${isActive ? 'text-[#05F293]' : 'text-[#8D8D8D]'}`}>
                                 {item.title}
                             </p>
                             {isActive && (

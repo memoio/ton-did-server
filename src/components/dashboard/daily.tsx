@@ -25,22 +25,22 @@ const Daily = () => {
             title: "Share invite link to Telegram",
             points: "+20 points",
             img: "/Images/coin.svg",
-            pending: "Invite",
-            done: "Invited",
+            pending: "Share",
+            done: "Shared",
         },
         {
             title: "Share invite link to Discord",
             points: "+20 points",
             img: "/Images/coin.svg",
-            pending: "Invite",
-            done: "Invited",
+            pending: "Share",
+            done: "Shared",
         },
         {
             title: "Share invite link to Twitter",
             points: "+20 points",
             img: "/Images/coin.svg",
-            pending: "Invite",
-            done: "Invited",
+            pending: "Share",
+            done: "Shared",
         },
     ]
     const communityquest = [

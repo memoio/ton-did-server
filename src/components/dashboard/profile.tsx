@@ -62,7 +62,7 @@ const Profile = () => {
                                 <p className='font-bold text-white phetsarath2'>Wallet Address</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
                                     <p className='phetsarath2 text-[15px] text-black'>
-                                        {address.slice(0, 6)}...{address.slice(43)}
+                                        {address.slice(0, 6)}...{address.slice(44)}
                                     </p>
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy} src={copy1 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>
@@ -73,7 +73,7 @@ const Profile = () => {
                                 <p className='font-bold text-white phetsarath2'>DID</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
                                     <p className='phetsarath2 text-[15px] text-black'>
-                                        {didInfo.exist ? `${didInfo.did.slice(0, 8)}...${didInfo.did.slice(70)}` : "null"}
+                                        {didInfo.exist ? `${didInfo.did.slice(0, 8)}...${didInfo.did.slice(71)}` : "null"}
                                     </p>
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy2} src={copy2 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>

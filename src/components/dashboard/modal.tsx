@@ -4,11 +4,9 @@ import { FC, MouseEventHandler } from "react";
 
 interface GeneralModalProps {
     handleClose: MouseEventHandler<HTMLDivElement>;
-
 }
 
 const GeneralModal: FC<GeneralModalProps> = ({
-
     handleClose,
 }) => {
     return (

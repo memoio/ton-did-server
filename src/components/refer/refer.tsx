@@ -13,6 +13,7 @@ export default function Invite() {
     const address = useTonAddress();
     const { referCode } = useRefer();
     const [values, setValues] = useState(Array(6).fill("")); // Separate state for each input
+    const [called, setCalled] = useState(false);
 
     useEffect(() => {
         if (referCode.length === 6) {
@@ -45,7 +46,6 @@ export default function Invite() {
 
     const handlePaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
         const pasteData = e.clipboardData.getData("text").slice(0, 6); // Get only first 6 characters
-        // if (/^\d+$/.test(pasteData)) {
         const newValues = pasteData.split("").slice(0, 6); // Split pasted numbers
         setValues(newValues);
 
@@ -66,29 +66,33 @@ export default function Invite() {
                 showModal("Failed", `Please enter a valid invite code.`, null, "failed")
                 return;
             }
-            const respond = await axios.post(API_URL.AIRDROP_INVITE_BIND, {
-                "code": inviteCode,
-                "address": address
-            }, {
-                headers: {
-                    "accept": "application/hal+json",
-                    "Content-Type": "application/json"
-                }
-            });
-            if (respond.status == 200) {
-                if (respond.data.result == 1) {
-                    showModal("Success", "You have entered the correct code.", () => { navigate('/dashboard'); });
-                    console.log(respond.data.data);
-                    addPoint(500);
+            if (!called) {
+                setCalled(true);
+                const respond = await axios.post(API_URL.AIRDROP_INVITE_BIND, {
+                    "code": inviteCode,
+                    "address": address
+                }, {
+                    headers: {
+                        "accept": "application/hal+json",
+                        "Content-Type": "application/json"
+                    }
+                });
+                if (respond.status == 200) {
+                    if (respond.data.result == 1) {
+                        showModal("Success", "You have entered the correct code.", () => { navigate('/dashboard'); });
+                        console.log(respond.data);
+                        addPoint(500);
+                    } else {
+                        showModal("Failed", `Failed to bind invited code: ${respond.data.error}`, null, "failed");
+                    }
                 } else {
-                    showModal("Failed", `Failed to bind invited code: ${respond.data.message}`, null, "failed");
+                    showModal("Failed", `Failed to bind invited code: ${JSON.stringify(respond.data)}`, null, "failed");
                 }
-            } else {
-                showModal("Failed", `Failed to bind invited code: ${JSON.stringify(respond.data)}`, null, "failed");
             }
         } catch (error) {
             showModal("Failed", `Failed to bind invited code: ${error}`, null, "failed");
         }
+        setCalled(false);
     }
 
     return (

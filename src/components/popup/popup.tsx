@@ -45,7 +45,7 @@ export function showModal(title: string, content: string, opt: (() => void) | nu
 
     // 创建图片
     const modalImage = document.createElement('img');
-    modalImage.src = type === 'success' ? "Images/success.png" : "Images/failed.png";
+    modalImage.src = type === 'success' ? "/Images/success.png" : "/Images/failed.png";
     Object.assign(modalImage.style, {
         width: '120px', // 图片宽度
         height: '120px', // 图片高度
@@ -54,6 +54,7 @@ export function showModal(title: string, content: string, opt: (() => void) | nu
         left: '50%', // 水平居中
         transform: 'translateX(-50%)', // 水平居中
     });
+    console.log(modalImage);
 
     // 创建标题
     const modalTitle = document.createElement('div');

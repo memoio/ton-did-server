@@ -134,7 +134,7 @@ const Referal = () => {
             </div>
             <div className='bg-[#025533] flex flex-col items-center justify-center gap-2 w-[350px] h-[160px] rounded-[16px] border border-[#05F292] border-solid'>
                 <p className='text-[15px] font-bold phetsarath2 text-white'>Your Referral Link</p>
-                <div className='bg-[#FFFFFF21] w-[240px] h-[35px] items-center justify-center flex'>
+                <div className='bg-[#FFFFFF21] w-[240px] h-[45px] items-center justify-center flex rounded-[12px] gap-2 px-[5%]'>
                     <p className='text-[#04D5FF] text-[12px]'>{currentUrl} </p>
                 </div>
                 {/* <p className='text-[14px] phetsarath text-[#05F292]'>You haven’t invited anyone yet</p> */}
@@ -153,12 +153,6 @@ const Referal = () => {
                     </button>
                 </div>
             </div>
-            {/* {showPopup && (
-                <div className="fixed bottom-22 right-4 bg-[#04D582] text-white text-[18px] sm:text-[20px] md:text-[22px] px-6 py-4 rounded-md shadow-lg flex items-center gap-3 animate-slide-in-up z-[50]">
-                    <FontAwesomeIcon icon={faCircleCheck} style={{ color: "white" }} />
-                    <p>{showPopup}</p>
-                </div>
-            )} */}
             <div className='h-[50px]'></div>
             <Footer />
         </div>
