@@ -22,12 +22,13 @@ const CreateDid = () => {
         console.log(rawAddress);
         if (rawAddress != "") {
             const splitted = rawAddress.split(":")
-            const address = splitted[1];
+            const splitRawAddress = splitted[1];
 
             try {
                 setOpen(true);
-                const response1 = await axios.post(API_URL.AIRDROP_CREATE_DID, {
-                    address,
+                const response1 = await axios.post(API_URL.AIRDROP_CREATE_TON_DID, {
+                    "caddress": splitRawAddress,
+                    "paddress": address,
                 });
 
                 if (response1.status === 200) {

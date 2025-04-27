@@ -24,6 +24,6 @@ export const API_URL = {
     "AIRDROP_POINTS_RANK": AIRDROP_BACKEND_URL + "/airdrop/rank",
     "AIRDROP_INVITE_BIND": AIRDROP_BACKEND_URL + "/airdrop/invite/bind",
     "AIRDROP_RECORD_LIST": AIRDROP_BACKEND_URL + "/airdrop/record/list",
-    "AIRDROP_CREATE_DID": AIRDROP_BACKEND_URL + "/did/createadmin",
+    "AIRDROP_CREATE_TON_DID": AIRDROP_BACKEND_URL + "/did/createtondid",
     "AIRDROP_DID_INFO": AIRDROP_BACKEND_URL + "/did/info",
 }

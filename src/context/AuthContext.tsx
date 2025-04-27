@@ -69,7 +69,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
                                     inviteCode: userresponse.data.data.inviteCode,
                                     inviteCount: userresponse.data.data.inviteCount,
                                     points: userresponse.data.data.points,
-                                    bindedCode: userresponse.data.data.parentUid !== null,
+                                    bindedCode: userresponse.data.data.parentCode !== "",
                                     pointsRank: userresponse.data.data.pointsRank,
                                 })
                             }
