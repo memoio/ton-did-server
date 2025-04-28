@@ -20,7 +20,7 @@ const ConnectWallet = () => {
     return (
         <div className='w-full h-[100vh] relative bg flex-col flex items-center justify-center'>
             <img src={"/Images/line1.svg"} className="absolute top-0 left-0" width={93} height={114.5} alt="" />
-            <img src={"/Images/line2.svg"} className="absolute top-110 right-0" width={93} height={114.5} alt="" />
+            <img src={"/Images/line2.svg"} className="absolute bottom-0 right-0" width={93} height={114.5} alt="" />
             <div className='w-[345px] h-[375px] border-2 border-solid border-[#05F292] rounded-[15px] relative flex flex-col items-center justify-center'>
                 <div className='bg-black w-[116px] flex items-center justify-center h-[116px] rounded-full absolute top-[-60px]'>
                     <img src={"/Images/wallet.svg"} className="" width={86} height={86} alt="" />
