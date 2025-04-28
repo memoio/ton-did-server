@@ -28,45 +28,45 @@ const Navigation = () => {
                 <div className='w-full flex flex-col gap-3'>
                     <div className='grid grid-cols-3 gap-2 w-full'>
                         <div className="border border-[#05F292] border-solid rounded-[15px] bg-[#05F2924D]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] flex items-center justify-center'>
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/createDID.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[14px] text-white'>Create DID</p>
+                                <p className='font-normal text-[13px] text-white'>Create DID</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/checkIn.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[14px] text-white'>Check In</p>
+                                <p className='font-normal text-[13px] text-white'>Check In</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/profile1.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[14px] text-white'>Profile</p>
+                                <p className='font-normal text-[13px] text-white'>Profile</p>
                             </Link>
                         </div>
                     </div>
                     <div className='grid grid-cols-2 gap-2 w-full'>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/shareTG.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[14px] text-white'>Share to Twitter</p>
+                                <p className='font-normal text-[13px] text-white'>Share to Telegram</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
-                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center'>
+                            <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/shareX.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[14px] text-white'>Share to Twitter</p>
+                                <p className='font-normal text-[13px] text-white'>Share to Twitter</p>
                             </Link>
                         </div>
 
