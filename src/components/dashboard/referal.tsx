@@ -94,14 +94,14 @@ const Referal = () => {
                         <div className="w-full h-[70px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                             <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                 <div className="flex flex-col leading-none gap-1">
-                                    <p className="font-bold text-white phetsarath2">Active Referrals</p>
+                                    <p className="font-bold text-white">Active Referrals</p>
                                     <p className="font-bold text-[#05F292]">{userInfo?.inviteCount}</p>
                                 </div>
                             </div>
                             <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                 <div className="flex flex-col leading-none items-end gap-1">
-                                    <p className="font-bold text-white phetsarath2">Points Earned</p>
-                                    <p className="font-bold text-[#05F292] phetsarath2">{userInfo?.points}</p>
+                                    <p className="font-bold text-white">Points Earned</p>
+                                    <p className="font-bold text-[#05F292]">{userInfo?.points}</p>
                                 </div>
                             </div>
                         </div>
@@ -117,9 +117,9 @@ const Referal = () => {
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
                                             <img src={item.img} width={30} height={30} alt='' />
-                                            <div className='flex flex-col phetsarath2'>
-                                                <p className='font-bold text-[#05F292]'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-white phetsarath2'>{item.point}</p>
+                                            <div className='flex flex-col'>
+                                                <p className='font-bold text-white'>{item.title}</p>
+                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.point}</p>
                                             </div>
                                         </div>
                                         <button onClick={() => handleInvite(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
@@ -133,7 +133,7 @@ const Referal = () => {
                 </div>
             </div>
             <div className='bg-[#025533] flex flex-col items-center justify-center gap-2 w-[350px] h-[160px] rounded-[16px] border border-[#05F292] border-solid'>
-                <p className='text-[15px] font-bold phetsarath2 text-white'>Your Referral Link</p>
+                <p className='text-[15px] font-bold text-white'>Your Referral Link</p>
                 <div className='bg-[#FFFFFF21] w-[240px] h-[45px] items-center justify-center flex rounded-[12px] gap-2 px-[5%]'>
                     <p className='text-[#04D5FF] text-[12px]'>{currentUrl} </p>
                 </div>
@@ -142,13 +142,13 @@ const Referal = () => {
                     <button onClick={handleInviteTG} className='w-[120px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-[#05F292] hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
                             <img src={"/Images/plus.svg"} width={18} height={18} alt='' />
-                            <p className='text-[10px] phetsarath text-black'>Invite a Friend</p>
+                            <p className='text-[10px] text-black'>Invite a Friend</p>
                         </div>
                     </button>
                     <button onClick={handleCopy} className='w-[120px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-white hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
                             <img src={copy ? "/Images/done2.svg" : "/Images/cop.svg"} width={18} height={18} alt='' />
-                            <p className='text-[10px] phetsarath text-[#074D35]'>Copy link</p>
+                            <p className='text-[10px] text-[#074D35]'>Copy link</p>
                         </div>
                     </button>
                 </div>

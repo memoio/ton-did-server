@@ -59,9 +59,9 @@ const Profile = () => {
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
-                                <p className='font-bold text-white phetsarath2'>Wallet Address</p>
+                                <p className='font-bold text-white'>Wallet Address</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
-                                    <p className='phetsarath2 text-[15px] text-black'>
+                                    <p className='text-[15px] text-black'>
                                         {address.slice(0, 6)}...{address.slice(44)}
                                     </p>
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy} src={copy1 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
@@ -70,9 +70,9 @@ const Profile = () => {
                         </div>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
-                                <p className='font-bold text-white phetsarath2'>DID</p>
+                                <p className='font-bold text-white'>DID</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
-                                    <p className='phetsarath2 text-[15px] text-black'>
+                                    <p className='text-[15px] text-black'>
                                         {didInfo.exist ? `${didInfo.did.slice(0, 8)}...${didInfo.did.slice(71)}` : "null"}
                                     </p>
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy2} src={copy2 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
@@ -86,12 +86,12 @@ const Profile = () => {
                                     <div className="w-full h-[65px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none gap-1">
-                                                <p className="font-bold text-white phetsarath2">DID Number</p>
+                                                <p className="font-bold text-white">DID Number</p>
                                             </div>
                                         </div>
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none items-end gap-1">
-                                                <p className="font-bold text-[#05F292] phetsarath2">{didInfo.exist ? didInfo.number : "null"}</p>
+                                                <p className="font-bold text-[#05F292]">{didInfo.exist ? didInfo.number : "null"}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -105,12 +105,12 @@ const Profile = () => {
                                     <div className="w-full h-[65px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none gap-1">
-                                                <p className="font-bold text-white phetsarath2">Invite Code</p>
+                                                <p className="font-bold text-white">Invite Code</p>
                                             </div>
                                         </div>
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none items-end gap-1">
-                                                <p className="font-bold text-[#05F292] phetsarath2">{userInfo?.inviteCode}</p>
+                                                <p className="font-bold text-[#05F292]">{userInfo?.inviteCode}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -129,13 +129,13 @@ const Profile = () => {
                                 <div className="w-full h-[70px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                     <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                         <div className="flex flex-col leading-none gap-1">
-                                            <p className="font-bold text-white phetsarath2">Points Earned</p>
-                                            <p className="font-bold text-[#05F292] phetsarath2">{userInfo?.points}</p>
+                                            <p className="font-bold text-white">Points Earned</p>
+                                            <p className="font-bold text-[#05F292]">{userInfo?.points}</p>
                                         </div>
                                     </div>
                                     <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                         <div className="flex flex-col leading-none items-end gap-1">
-                                            <p className="font-bold text-white phetsarath2">Active Referrals</p>
+                                            <p className="font-bold text-white">Active Referrals</p>
                                             <p className="font-bold text-[#05F292]">{userInfo?.inviteCount}</p>
                                         </div>
                                     </div>
@@ -145,9 +145,9 @@ const Profile = () => {
                     </div>
                     <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                         <div className='flex flex-col items-center justify-between w-full'>
-                            <p className='font-bold text-white phetsarath2'>Your Referral Link</p>
+                            <p className='font-bold text-white'>Your Referral Link</p>
                             <div className='w-[270px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                <p className='phetsarath2 text-[15px] text-black'>{TON_DID_WEB.slice(8, 32)}...</p>
+                                <p className='text-[15px] text-black'>{TON_DID_WEB.slice(8, 32)}...</p>
                                 <div >
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy3} src={copy3 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>

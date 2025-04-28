@@ -32,7 +32,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/createDID.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[15px] text-white'>Create DID</p>
+                                <p className='phetsarath2 text-[14px] text-white'>Create DID</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
@@ -40,7 +40,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/checkIn.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[15px] text-white'>Check In</p>
+                                <p className='phetsarath2 text-[14px] text-white'>Check In</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
@@ -48,7 +48,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/profile1.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[15px] text-white'>Profile</p>
+                                <p className='phetsarath2 text-[14px] text-white'>Profile</p>
                             </Link>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/shareTG.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[15px] text-white'>Share to Twitter</p>
+                                <p className='phetsarath2 text-[14px] text-white'>Share to Twitter</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
@@ -66,7 +66,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/shareX.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='phetsarath2 text-[15px] text-white'>Share to Twitter</p>
+                                <p className='phetsarath2 text-[14px] text-white'>Share to Twitter</p>
                             </Link>
                         </div>
 

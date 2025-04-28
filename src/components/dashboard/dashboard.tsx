@@ -35,7 +35,7 @@ const Dashboard = () => {
                         <div className='w-full h-[56px] rounded-[12px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D]'>
                             <p className='font-bold text-white'>Total Referrals</p>
                             <div className='flex flex-row items-center gap-1'>
-                                <p className='text-white Phetsarath2 text-[16px] font-bold'>{userInfo?.inviteCount}</p>
+                                <p className='text-white text-[16px] font-bold'>{userInfo?.inviteCount}</p>
                             </div>
                         </div>
                     </div>
@@ -45,22 +45,22 @@ const Dashboard = () => {
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
                             <div className='flex flex-col leading-none gap-2'>
-                                <p className='font-bold text-[16px] text-white phetsarath2'>Completed Daily Task</p>
+                                <p className='font-bold text-[16px] text-white'>Completed Daily Task</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
-                                        <p className='font-bold text-[12px] text-[#C3C3C3] phetsarath'>Visit MEMO on Twitter</p>
-                                        <p className='font-bold text-[12px] text-[#05F292] phetsarath'>(+20 Points)</p>
+                                        <p className='font-bold text-[12px] text-[#C3C3C3]'>Visit MEMO on Twitter</p>
+                                        <p className='font-bold text-[12px] text-[#05F292]'>(+20 Points)</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
                             <div className='flex flex-col leading-none gap-2'>
-                                <p className='font-bold text-[16px] text-white phetsarath2'>Completed Community Task</p>
+                                <p className='font-bold text-[16px] text-white'>Completed Community Task</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
-                                        <p className='font-bold text-[12px] text-[#C3C3C3] phetsarath'>Follow MEMO on Twitter</p>
-                                        <p className='font-bold text-[12px] text-[#05F292] phetsarath'>(+50 Points)</p>
+                                        <p className='font-bold text-[12px] text-[#C3C3C3]'>Follow MEMO on Twitter</p>
+                                        <p className='font-bold text-[12px] text-[#05F292]'>(+50 Points)</p>
                                     </div>
                                 </div>
                             </div>
@@ -71,10 +71,10 @@ const Dashboard = () => {
                     <p className='paytone text-[18px] font-bold text-white'>Notifications</p>
                     <div className='w-full h-[60px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
                         <div className='flex flex-col leading-none gap-2'>
-                            <p className='font-bold text-white phetsarath2'>New Referral Bonus:</p>
+                            <p className='font-bold text-white'>New Referral Bonus:</p>
                             <div>
                                 <div className='flex flex-row items-center gap-1'>
-                                    <p className='font-bold text-[12px] text-[#05F292] phetsarath'>When your friend binds the invitation code, he or she will get 500 points, you will get 200 points.</p>
+                                    <p className='font-bold text-[12px] text-[#05F292]'>When your friend binds the invitation code, he or she will get 500 points, you will get 200 points.</p>
                                 </div>
                             </div>
                         </div>

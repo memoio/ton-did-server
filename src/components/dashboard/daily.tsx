@@ -15,28 +15,28 @@ import "../../App.css";
 const Daily = () => {
     const dailyReward = [
         {
-            title: "Visit MEMO's Twitter page ",
+            title: "Visit MEMO's Twitter Page ",
             points: "+20 points",
             img: "/Images/coin.svg",
             pending: "Visit",
             done: "Visited",
         },
         {
-            title: "Share invite link to Telegram",
+            title: "Share Invite Link To Telegram",
             points: "+20 points",
             img: "/Images/coin.svg",
             pending: "Share",
             done: "Shared",
         },
         {
-            title: "Share invite link to Discord",
+            title: "Share Invite Link To Discord",
             points: "+20 points",
             img: "/Images/coin.svg",
             pending: "Share",
             done: "Shared",
         },
         {
-            title: "Share invite link to Twitter",
+            title: "Share Invite Link To Twitter",
             points: "+20 points",
             img: "/Images/coin.svg",
             pending: "Share",
@@ -45,7 +45,7 @@ const Daily = () => {
     ]
     const communityquest = [
         {
-            title: "Follow our Twitter",
+            title: "Follow Our Twitter",
             points: "+50 points",
             img: "/Images/x.jpeg",
             url: "https://x.com/MemoLabsOrg",
@@ -53,7 +53,7 @@ const Daily = () => {
             done: "Followed",
         },
         {
-            title: "Join our TG channel",
+            title: "Join Our TG Channel",
             points: "+50 points",
             img: "/Images/tg.png",
             url: "https://t.me/memolabsio",
@@ -61,7 +61,7 @@ const Daily = () => {
             done: "Joined",
         },
         {
-            title: "Join our discord",
+            title: "Join Our Discord",
             points: "+50 points",
             img: "/Images/discord.png",
             url: 'https://discord.com/invite/YG4Ydv2E7X',
@@ -189,14 +189,11 @@ const Daily = () => {
                                 <div key={index} className={`w-full h-[65px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]`}>
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
-                                            <div className='flex flex-col nunito-regular'>
-                                                <p className='font-bold text-white nunito-regular'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-[#05F292] nunito-regular'>{item.points}</p>
+                                            <div className='flex flex-col'>
+                                                <p className='font-bold text-white'>{item.title}</p>
+                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.points}</p>
                                             </div>
                                         </div>
-                                        {/* <button onClick={() => handleDailyClick(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                            <p className='phetsarath2 text-[15px] text-black'>Invite</p>
-                                        </button> */}
                                         <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
                                             <p className="phetsarath2 text-[15px] text-black">{dailyAction.has(index) ? item.done : item.pending}</p>
                                         </button>
@@ -214,9 +211,9 @@ const Daily = () => {
                                 <div key={index} className={`w-full h-[65px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#05F2924D] border-solid rounded-[15px]`}>
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
-                                            <div className='flex flex-col nunito-regular'>
-                                                <p className='font-bold text-white nunito-regular'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-[#05F292] nunito-regular'>{item.points}</p>
+                                            <div className='flex flex-col'>
+                                                <p className='font-bold text-white'>{item.title}</p>
+                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.points}</p>
                                             </div>
                                         </div>
                                         <button onClick={() => handleQuestClick(index)} disabled={questAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${questAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
@@ -233,10 +230,10 @@ const Daily = () => {
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
                             <div className='flex flex-col leading-none gap-2'>
-                                <p className='font-bold text-[16px] text-[#05F292] nunito-regular'>3 days Streaks</p>
+                                <p className='font-bold text-[16px] text-[#05F292]'>3 days Streaks</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
-                                        <p className='font-bold text-[14px] text-white nunito-400'>Check-in tomorrow for a bonus reward.(+20 Points)</p>
+                                        <p className='font-bold text-[14px] text-white'>Check-in tomorrow for a bonus reward.(+20 Points)</p>
                                     </div>
                                 </div>
                             </div>
