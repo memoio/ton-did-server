@@ -43,7 +43,7 @@ const Start = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center bg relative ">
       <img src={"/Images/airdrop1.svg"} className="absolute top-0 right-0" width={115.25} height={162.64} alt="" />
-      <img src={"/Images/airdrop2.svg"} className="absolute top-95 left-0" width={86.72} height={122.7} alt="" />
+      <img src={"/Images/airdrop2.svg"} className="absolute top-80 left-0" width={86.72} height={122.7} alt="" />
       {/* <img src={"/Images/ellipse.svg"} className="absolute top-0 right-0" width={447} height={666} alt="" /> */}
       <div className="flex flex-col gap-2 items-center z-[600]">
         <div className="flex flex-row items-center gap-2">
