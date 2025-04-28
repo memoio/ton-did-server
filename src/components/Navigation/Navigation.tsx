@@ -18,8 +18,8 @@ const Navigation = () => {
 
     return (
         <div className='w-full h-[100vh] relative bg flex-col flex items-center pt-[3%] px-[7%]'>
-            <img src={"/Images/line1.svg"} className="absolute top-0 left-0" width={93} height={114.5} alt="" />
-            <img src={"/Images/line2.svg"} className="absolute top-0 right-0" width={93} height={114.5} alt="" />
+            {/* <img src={"/Images/line1.svg"} className="absolute top-0 left-0" width={50} height={60} alt="" /> */}
+            {/* <img src={"/Images/line2.svg"} className="absolute top-0 right-0" width={50} height={60} alt="" /> */}
             <div className='w-full flex flex-col items-center z-[500] gap-4'>
                 <img src={"/Images/create-did.svg"} className="" width={302.13} height={203.13} alt="" />
                 <div className='flex flex-col gap-4'>
@@ -64,7 +64,7 @@ const Navigation = () => {
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
                             <Link to="/connect" className='w-full h-[42px] rounded-[12px] bg-[#05F2924D] flex items-center justify-center gap-x-1'>
                                 <div className="rounded-full items-center justify-center flex">
-                                    <img src={"/Images/shareX.svg"} width={15} height={15} alt="" />
+                                    <img src={"/Images/x.png"} width={15} height={15} alt="" />
                                 </div>
                                 <p className='font-normal text-[13px] text-white'>Share to Twitter</p>
                             </Link>

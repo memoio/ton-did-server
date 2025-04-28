@@ -30,7 +30,7 @@ const ConnectWallet = () => {
                         <p className='text-[48px] praise-regular text-white text-center h-[38px]'>Connect</p>
                         <p className='text-[40px] nunito-regular text-[#05F292] text-center'> Your Wallet</p>
                     </div>
-                    <p className='text-white phetsarath text-center text-[16px] '>Connect your Ton wallet to create your unique MEMO Identity</p>
+                    <p className='text-white text-center text-[16px] '>Connect your Ton wallet to create your unique MEMO Identity</p>
                     <TonConnectButton />
                 </div>
             </div>
