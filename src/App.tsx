@@ -54,7 +54,7 @@ const Start = () => {
         <p className="praise-regular font-normal text-[43px] leading-[42px] tracking-[0%] capitalize">Welcome to</p>
         <p className="nunito-regular font-black text-[30px] leading-[41px] tracking-[0%] capitalize"> <span className="text-[#05F292]">MEMO</span> Protocol</p>
 
-        <p className="text-white">Earn, Share, and Build with MEMO!</p>
+        <p className="text-white">Earn, Share, And Build With MEMO!</p>
         <div className="mt-5">
           <button className="w-[200px] h-[50px] rounded-[37px] bg-[#05F292] py-[9px] px-[20px] rounded-[25px] shadow-[0px_4px_36.5px_0px_rgba(255,255,255,0.25)] flex items-center justify-center text-white font-phetsarath font-normal text-[16px] leading-[33px] tracking-[0%] text-center capitalize" onClick={handleStart}>
             <p className="text-white font-bold">Get Started</p>

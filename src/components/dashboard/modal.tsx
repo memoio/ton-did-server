@@ -22,7 +22,7 @@ const GeneralModal: FC<GeneralModalProps> = ({
                 >
                     <div className="py-6  flex flex-col gap-1 items-center justify-center px-3 text-[var(--faded-text)] overflow-y-auto">
                         <img className="rotate" src={"/Images/loading.svg"} width={24} height={24} alt="" />
-                        <p className="phetsarath font-normal text-white">DID is being created...</p>
+                        <p className="font-normal text-white">DID is being created...</p>
                     </div>
                 </div>
             </div>

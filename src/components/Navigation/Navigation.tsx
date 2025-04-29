@@ -58,7 +58,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/shareTG.svg"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='font-normal text-[13px] text-white'>Share to Telegram</p>
+                                <p className='font-normal text-[13px] text-white'>Share To Telegram</p>
                             </Link>
                         </div>
                         <div className="border border-[#05F292] border-solid rounded-[15px]">
@@ -66,7 +66,7 @@ const Navigation = () => {
                                 <div className="rounded-full items-center justify-center flex">
                                     <img src={"/Images/x.png"} width={15} height={15} alt="" />
                                 </div>
-                                <p className='font-normal text-[13px] text-white'>Share to Twitter</p>
+                                <p className='font-normal text-[13px] text-white'>Share To Twitter</p>
                             </Link>
                         </div>
 

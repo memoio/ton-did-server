@@ -14,12 +14,12 @@ const Referal = () => {
         {
             img: "/Images/token2.svg",
             point: "200 points",
-            title: "Invite a Friend with Telegram"
+            title: "Invite Friends With Telegram"
         },
         {
             img: "/Images/token2.svg",
             point: "200 points",
-            title: "Invite a Friend with twitter"
+            title: "Invite Friends With Twitter"
         },
 
     ];
@@ -116,14 +116,14 @@ const Referal = () => {
                                 <div key={index} className='w-full h-[70px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#022918] border-solid rounded-[15px]'>
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
-                                            <img src={item.img} width={30} height={30} alt='' />
+                                            {/* <img src={item.img} width={30} height={30} alt='' /> */}
                                             <div className='flex flex-col'>
                                                 <p className='font-bold text-white'>{item.title}</p>
                                                 <p className='font-bold text-[13px] text-[#05F292]'>{item.point}</p>
                                             </div>
                                         </div>
-                                        <button onClick={() => handleInvite(index)} className='w-[57px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
-                                            <p className='phetsarath2 text-[15px] text-black'>Invite</p>
+                                        <button onClick={() => handleInvite(index)} className='w-[65px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
+                                            <p className='text-[15px] text-black'>Invite</p>
                                         </button>
                                     </div>
                                 </div>
@@ -134,21 +134,21 @@ const Referal = () => {
             </div>
             <div className='bg-[#025533] flex flex-col items-center justify-center gap-2 w-[350px] h-[160px] rounded-[16px] border border-[#05F292] border-solid'>
                 <p className='text-[15px] font-bold text-white'>Your Referral Link</p>
-                <div className='bg-[#FFFFFF21] w-[240px] h-[45px] items-center justify-center flex rounded-[12px] gap-2 px-[5%]'>
-                    <p className='text-[#04D5FF] text-[12px]'>{currentUrl} </p>
+                <div className='bg-[#FFFFFF21] w-[250px] h-[45px] items-center justify-center flex rounded-[12px] gap-2 px-[5%]'>
+                    <p className='text-[#04D5FF] text-[13px]'>{currentUrl} </p>
                 </div>
                 {/* <p className='text-[14px] phetsarath text-[#05F292]'>You haven’t invited anyone yet</p> */}
                 <div className='flex flex-row items-center gap-3'>
                     <button onClick={handleInviteTG} className='w-[120px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-[#05F292] hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
                             <img src={"/Images/plus.svg"} width={18} height={18} alt='' />
-                            <p className='text-[10px] text-black'>Invite a Friend</p>
+                            <p className='text-[13px] text-black'>Invite a Friend</p>
                         </div>
                     </button>
                     <button onClick={handleCopy} className='w-[120px] h-[32px] py-2 flex items-center justify-center rounded-[23px] bg-white hover:bg-gray-100 active:bg-gray-200 transition-colors'>
                         <div className='flex flex-row items-center gap-2'>
                             <img src={copy ? "/Images/done2.svg" : "/Images/cop.svg"} width={18} height={18} alt='' />
-                            <p className='text-[10px] text-[#074D35]'>Copy link</p>
+                            <p className='text-[13px] text-[#074D35]'>Copy Link</p>
                         </div>
                     </button>
                 </div>
