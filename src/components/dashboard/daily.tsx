@@ -230,10 +230,10 @@ const Daily = () => {
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] border border-[#05F292] bg-[#023B23] border-solid rounded-[15px]'>
                             <div className='flex flex-col leading-none gap-2'>
-                                <p className='font-bold text-[16px] text-[#05F292]'>3 days Streaks</p>
+                                <p className='text-[16px] text-[#05F292]'>3 days Streaks</p>
                                 <div>
                                     <div className='flex flex-row items-center gap-1'>
-                                        <p className='font-bold text-[14px] text-white'>Check-in tomorrow for a bonus reward.(+20 Points)</p>
+                                        <p className='text-[14px] text-white'>Check-in tomorrow for a bonus reward.(+20 Points)</p>
                                     </div>
                                 </div>
                             </div>

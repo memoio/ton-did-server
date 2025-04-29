@@ -59,10 +59,10 @@ const Profile = () => {
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
-                                <p className='font-bold text-white'>Wallet Address</p>
+                                <p className='text-white'>Wallet Address</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
                                     <p className='text-[15px] text-black'>
-                                        {address.slice(0, 6)}...{address.slice(44)}
+                                        {address.slice(0, 4)}...{address.slice(44)}
                                     </p>
                                     <img className="w-[13px] h-[14px] cursor-pointer object-none" onClick={handleCopy} src={copy1 ? "/Images/done.svg" : "/Images/copy.svg"} alt="Copy" />
                                 </div>
@@ -70,7 +70,7 @@ const Profile = () => {
                         </div>
                         <div className='w-full h-[65px] flex flex-row items-center justify-between px-[5%] bg-[#05F2924D] border border-[#05F292] border-solid rounded-[15px]'>
                             <div className='flex flex-row items-center justify-between w-full'>
-                                <p className='font-bold text-white'>DID</p>
+                                <p className='text-white'>DID</p>
                                 <div className='w-[137px] h-[28px] rounded-[38px] bg-[#05F292] flex items-center justify-between px-3'>
                                     <p className='text-[15px] text-black'>
                                         {didInfo.exist ? `${didInfo.did.slice(0, 8)}...${didInfo.did.slice(71)}` : "null"}
@@ -86,12 +86,12 @@ const Profile = () => {
                                     <div className="w-full h-[65px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none gap-1">
-                                                <p className="font-bold text-white">DID Number</p>
+                                                <p className="text-white">DID Number</p>
                                             </div>
                                         </div>
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none items-end gap-1">
-                                                <p className="font-bold text-[#05F292]">{didInfo.exist ? didInfo.number : "null"}</p>
+                                                <p className="text-[#05F292]">{didInfo.exist ? didInfo.number : "null"}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -105,12 +105,12 @@ const Profile = () => {
                                     <div className="w-full h-[65px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none gap-1">
-                                                <p className="font-bold text-white">Invite Code</p>
+                                                <p className="text-white">Invite Code</p>
                                             </div>
                                         </div>
                                         <div className="w-full h-[65px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                             <div className="flex flex-col leading-none items-end gap-1">
-                                                <p className="font-bold text-[#05F292]">{userInfo?.inviteCode}</p>
+                                                <p className="text-[#05F292]">{userInfo?.inviteCode}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -129,14 +129,14 @@ const Profile = () => {
                                 <div className="w-full h-[70px] rounded-[12px] flex flex-row items-center justify-between gap-4">
                                     <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-between px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                         <div className="flex flex-col leading-none gap-1">
-                                            <p className="font-bold text-white">Points Earned</p>
-                                            <p className="font-bold text-[#05F292]">{userInfo?.points}</p>
+                                            <p className="text-white">Points Earned</p>
+                                            <p className="text-[#05F292]">{userInfo?.points}</p>
                                         </div>
                                     </div>
                                     <div className="w-full h-[70px] rounded-[12px] bg-[#05F2924D] flex flex-row items-center justify-end px-[5%] border border-[#05F292] border-solid rounded-[15px]">
                                         <div className="flex flex-col leading-none items-end gap-1">
-                                            <p className="font-bold text-white">Active Referrals</p>
-                                            <p className="font-bold text-[#05F292]">{userInfo?.inviteCount}</p>
+                                            <p className="text-white">Active Referrals</p>
+                                            <p className="text-[#05F292]">{userInfo?.inviteCount}</p>
                                         </div>
                                     </div>
                                 </div>

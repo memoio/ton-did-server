@@ -118,8 +118,8 @@ const Referal = () => {
                                         <div className='flex flex-row gap-3 items-center'>
                                             {/* <img src={item.img} width={30} height={30} alt='' /> */}
                                             <div className='flex flex-col'>
-                                                <p className='font-bold text-white'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.point}</p>
+                                                <p className='text-white'>{item.title}</p>
+                                                <p className='text-[13px] text-[#05F292]'>{item.point}</p>
                                             </div>
                                         </div>
                                         <button onClick={() => handleInvite(index)} className='w-[65px] h-[26px] rounded-[16px] bg-[#05F292] flex items-center justify-center flex-row gap-2'>
