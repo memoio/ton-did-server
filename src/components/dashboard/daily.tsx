@@ -190,8 +190,8 @@ const Daily = () => {
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
                                             <div className='flex flex-col'>
-                                                <p className='font-bold text-white'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.points}</p>
+                                                <p className='text-white'>{item.title}</p>
+                                                <p className='text-[13px] text-[#05F292]'>{item.points}</p>
                                             </div>
                                         </div>
                                         <button onClick={() => handleDailyClick(index)} disabled={dailyAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${dailyAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
@@ -212,8 +212,8 @@ const Daily = () => {
                                     <div className='flex flex-row items-center justify-between w-full'>
                                         <div className='flex flex-row gap-3 items-center'>
                                             <div className='flex flex-col'>
-                                                <p className='font-bold text-white'>{item.title}</p>
-                                                <p className='font-bold text-[13px] text-[#05F292]'>{item.points}</p>
+                                                <p className='text-white'>{item.title}</p>
+                                                <p className='text-[13px] text-[#05F292]'>{item.points}</p>
                                             </div>
                                         </div>
                                         <button onClick={() => handleQuestClick(index)} disabled={questAction.has(index)} className={`w-[80px] h-[26px] rounded-[16px] flex items-center justify-center flex-row gap-2 ${questAction.has(index) ? 'bg-[#05F2924D]' : 'bg-[#05F292]'}`}>
