@@ -18,12 +18,12 @@ export const API_URL = {
     "DID_EXIST": DID_SERVER_URL + "/exist",
     "DID_CREATE_MSG": DID_SERVER_URL + "/createsigmsg",
 
-    "AIRDROP_RECORD_ADD": AIRDROP_BACKEND_URL + "/airdrop/record/add",
-    "AIRDROP_USER_WALLET_BIND": AIRDROP_BACKEND_URL + "/airdrop/bind",
-    "AIRDROP_USER_INFO": AIRDROP_BACKEND_URL + "/airdrop/info",
-    "AIRDROP_POINTS_RANK": AIRDROP_BACKEND_URL + "/airdrop/rank",
-    "AIRDROP_INVITE_BIND": AIRDROP_BACKEND_URL + "/airdrop/invite/bind",
-    "AIRDROP_RECORD_LIST": AIRDROP_BACKEND_URL + "/airdrop/record/list",
+    "AIRDROP_RECORD_ADD": AIRDROP_BACKEND_URL + "/data/record/add",
+    "AIRDROP_USER_WALLET_BIND": AIRDROP_BACKEND_URL + "/data/bind",
+    "AIRDROP_USER_INFO": AIRDROP_BACKEND_URL + "/data/info",
+    "AIRDROP_POINTS_RANK": AIRDROP_BACKEND_URL + "/data/rank",
+    "AIRDROP_INVITE_BIND": AIRDROP_BACKEND_URL + "/data/invite/bind",
+    "AIRDROP_RECORD_LIST": AIRDROP_BACKEND_URL + "/data/record/list",
     "AIRDROP_CREATE_TON_DID": AIRDROP_BACKEND_URL + "/did/createtondid",
     "AIRDROP_DID_INFO": AIRDROP_BACKEND_URL + "/did/info",
 }
